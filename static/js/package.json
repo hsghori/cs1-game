@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "styledot": "^0.1.566"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "browserify": {
+    "transform": [["babelify", { "presets": ["es2015"] }]]
+  }
+}
