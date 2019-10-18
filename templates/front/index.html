@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_class %}index{% endblock %}
+
+{% block content %}
+    {% for module in object_list %}
+        <a class="sd-card sd-elevation-2 game-module-card">
+            <h1>
+                {{ module.title }}
+            </h1>
+            <p>
+                {{ module.description }}
+            </p>
+        </a>
+    {% endfor %}
+
+    <div>
+        <a class="sd-button-small-no" href="{% url 'logout' %}">Logout</a>
+    </div>
+{% endblock %}

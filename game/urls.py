@@ -19,7 +19,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^game/', include('front.urls')),
+    url(r'^accounts/', include('account.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^', include('front.urls')),
     # url(r'^api/', include('api.urls')),
 ]
 
