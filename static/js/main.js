@@ -1,11 +1,12 @@
-import $ from 'jquery';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-$(document).ready(() => {
-    const $div = $('.hello-world');
-    $div.mouseenter((e) => {
-        $(e.currentTarget).addClass('hello-world-hover');
-    });
-    $div.mouseleave((e) => {
-        $(e.currentTarget).removeClass('hello-world-hover');
-    });
-});
+
+const Welcome = (props) => {
+  return <h1>Hello, {props.name}</h1>;
+};
+const element = <Welcome name="world" />;
+ReactDOM.render(
+  element,
+  document.getElementById('test-react')
+);

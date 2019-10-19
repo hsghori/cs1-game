@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load render_bundle from webpack_loader %}
+
 {% block body_class %}index{% endblock %}
 
 {% block content %}
+    <div id="test-react"></div>
     {% for module in object_list %}
         <a class="sd-card sd-elevation-2 game-module-card">
             <h1>
@@ -17,4 +20,7 @@
     <div>
         <a class="sd-button-small-no" href="{% url 'logout' %}">Logout</a>
     </div>
+
+    {% render_bundle 'main' 'js' %}
 {% endblock %}
+
