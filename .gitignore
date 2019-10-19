@@ -2,10 +2,11 @@
 .vscode
 .venv/
 .DS_Store
-static/js/node_modules/
+node_modules/
 static/admin/
-static/js/bundle.js
-static/css/main.css*
+static/bundles/
+static/css/
+webpack-stats.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
