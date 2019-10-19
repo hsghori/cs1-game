@@ -1,0 +1,21 @@
+external_id: conditionals
+title: What if?
+description: Learn how computers make decisions
+status: active
+games:
+  - external_id: basic_if
+    title: Basic if statements
+    description: Write some basic if statements
+    status: active
+  - external_id: else
+    title: What else is there?
+    description: Throwing else into the mix
+    status: active
+  - external_id: if_else_if_else
+    title: One more time now
+    description: Else if
+    status: active
+  - external_id: switch
+    title: Switch hitting
+    description: Switch
+    status: active

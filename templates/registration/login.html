@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body_class %}login{% endblock %}
+
+{% block content %}
+    <div class="sd-card sd-elevation-2 login-form">
+        <h1>Login</h1>
+        <form class="login-form-buffer" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="button-container">
+                <button class="sd-button-small-yes" type="submit">Login</button>
+                <a class="sd-button-small-yes" href="/accounts/create-account/">Signup</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
