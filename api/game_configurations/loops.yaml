@@ -1,0 +1,36 @@
+external_id: loops
+title: Loops
+description: Learn how to make computers repeat themselves
+status: active
+module_number: 2
+games:
+  - external_id: for_loops_0
+    title: Basic loops
+    description: Write some basic for loops
+    status: active
+    level_number: 0
+  - external_id: for_loop_1
+    title: Advanced for loops
+    description: Write some advanced for loops
+    status: active
+    level_number: 1
+  - external_id: while_loops_0
+    title: Basic while loops
+    description: Write some basic while loops
+    status: active
+    level_number: 2
+  - external_id: while_loops_1
+    title: Advnaced while loops
+    description: Write some advnaced while loops
+    status: active
+    level_number: 3
+  - external_id: nested_loops
+    title: Nested Loops
+    description: Write loops within loops
+    status: active
+    level_number: 4
+  - external_id: loop_equivalence
+    title: Equivalent loops
+    description: Turn for loops into while loops
+    status: active
+    level_number: 5

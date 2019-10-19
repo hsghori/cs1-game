@@ -9,7 +9,7 @@ start:
 	$(ACTIVATE) python manage.py runserver
 
 npm:
-	npm ci
+	@npm ci
 
 watch:
 	make watch_css & make watch_js

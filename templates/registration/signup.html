@@ -2,13 +2,34 @@
 
 {% block title %}Sign Up{% endblock %}
 
+{% block body_class %}registration{% endblock %}
+
 {% block content %}
-    <div class="login-form">
+    <div class="sd-card signup-form">
         <h2>Sign up</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Sign up</button>
+            {% for field in form %}
+                <div class="sd-form-field">
+                    <label
+                        for="{{ field.id_for_label }}"
+                        class="sd-form-label hide"
+                    >
+                        {{ field.label }}
+                    </label>
+                    <input
+                        class="sd-form-input"
+                        id="{{ field.id_for_label }}"
+                        name="{{ field.html_name }}"
+                        placeholder="{{ field.label }}"
+                        type="{{ field.field.widget.input_type }}" />
+                    {{ field.errors }}
+                </div>
+            {% endfor %}
+            {% if form.non_field_errors %}
+                {{ form.non_field_errors }}
+            {% endif %}
+            <button class="sd-button" type="submit">Sign up</button>
         </form>
     </div>
 {% endblock %}

@@ -2,20 +2,25 @@ external_id: conditionals
 title: What if?
 description: Learn how computers make decisions
 status: active
+module_number: 1
 games:
   - external_id: basic_if
     title: Basic if statements
     description: Write some basic if statements
     status: active
+    level_number: 0
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
     status: active
+    level_number: 1
   - external_id: if_else_if_else
     title: One more time now
     description: Else if
     status: active
+    level_number: 2
   - external_id: switch
     title: Switch hitting
     description: Switch
     status: active
+    level_number: 3

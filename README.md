@@ -8,9 +8,9 @@ Ga Tech CS-6460 Project - Game based introductory computer science course (snapp
     ```Bash
     make
     ```
-2. Compile scss and javascript
+2. Set the JS and CSS watcher
     ```Bash
-    make build_static
+    make watch
     ```
 3. Start the server
     ```
@@ -20,9 +20,9 @@ Ga Tech CS-6460 Project - Game based introductory computer science course (snapp
 
 ## Installing a JS library
 
-1. In `static/js/` 
+1. Install the package
     ```Bash
-    npm install --save <package>
+    npm install --save-dev <package>
     ```
 2. Commit the updated `package-lock.json` file.
 
