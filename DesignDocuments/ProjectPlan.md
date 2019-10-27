@@ -10,10 +10,13 @@ The purpose of Professor CS is to provide a fun and interactive game for student
 ### Inception
 
 #### Description:
-The inception phase involves bringing the Professor CS game concepts to fruition. For completion of the inception phase, we have identified our requirements, proposed our project idea, created a proposal tast list, and have come up with diagrams and documentation for the implementation of the game.
+The inception phase involves bringing the Professor CS game concepts to fruition. For completion of the inception phase, 
+we have identified our requirements, proposed our project idea, created a proposal task list, and have come up with 
+diagrams and documentation for the implementation of the game.
 
 #### Entrance criteria
-The entrance phase involves gathering the necessary research for our proposed work, coming up with requirements to build out Professor CS to completion and creating a tast list for the duration of the project.
+The entrance phase involves gathering the necessary research for our proposed work, coming up with requirements to build 
+out Professor CS to completion and creating a task list for the duration of the project.
 
 #### Exit criteria
 The exit criteria for this phase is the completed task list  project documentation, and diagrams.
@@ -21,37 +24,54 @@ The exit criteria for this phase is the completed task list  project documentati
 ### Elaboration
 
 #### Description:
-In the elaboration phase, the team will be diving deeper into the technical tasks to meet our project requirements. At the same time, we will be updating requirements, task list, and timeline as needed. The game's architecture will be polished and ready for implementation.
+In the elaboration phase, the team will be diving deeper into the technical tasks to meet our project requirements. At 
+the same time, we will be updating requirements, task list, and timeline as needed. The game's architecture will be 
+polished and ready for implementation.
 
 #### Entrance criteria
-The entrance criteria for this phase is the project diagram and documents which describe the game-based application in detail.
+The entrance criteria for this phase is the project diagram and documents which describe the game-based application in 
+detail.
 
 #### Exit criteria
-For the exit criteria of this stage, the output will consist of the polished project task list, diagrams, documents, game architecture and test plan. A prototype of the user interface will be created and the application will be ready for implementation.
+For the exit criteria of this stage, the output will consist of the polished project task list, diagrams, documents, 
+game architecture and test plan. A prototype of the user interface will be created and the application will be ready for 
+implementation.
 
 
 ### Construction
 
 #### Description:
-At the construction phase, the frontend API, UI and backend will be developed. In parallel, the integration and unit tests will be written to ensure the code is functional. Project diagrams and documentation will be updated as necessary.
+At the construction phase, we will develop the frontend user interface, API, and backend will be developed. We will write, 
+integration and unit tests concurrently to ensure the code functions correctly. Project diagrams and documentation will 
+be updated as necessary.
 
 #### Entrance criteria
-The entrance criteria for this phase is the project documentation and architecture diagrams from the earlier phases. Other requirements include a personal computer or laptop, integrated development environment, a local building environment and necessary code dependencies.
+The entrance criteria for this phase is the project documentation and architecture diagrams from the earlier phases. 
+Other requirements include a personal computer or laptop, integrated development environment, a local building 
+environment and necessary code dependencies.
 
 #### Exit criteria
-The exit criteria for the construction phase will be the Makefile and GitHub repository containing all of the necessary project code for Professor CS as well as any required packages and/or dependencies. Documentation and diagrams will be finalized. Furthermore the game should pass all unit testing and integration.
+The exit criteria for the construction phase will be the Makefile and GitHub repository containing all of the necessary 
+project code for Professor CS as well as any required packages and/or dependencies. Documentation and diagrams will be 
+finalized. Furthermore the game should pass all unit testing and integration.
 
 
 ### Transition
 
 #### Description:
-The final phase involves the deployment of the Professor CS game. A makefile will be used to build and deploy the application. All bug fixes will be completed and project design documents and diagrams will be finalized.
+The final phase involves the deployment of the Professor CS game. A makefile will be used to build and deploy the 
+application. All bug fixes will be completed and project design documents and diagrams will be finalized.
 
 #### Entrance criteria
-The inputs for this stage include the deployment artifacts, the deployment instructions, and the user manual. A user will be needed to conduct manual testing of the application. All failtures should be reported.
+The inputs for this stage include the deployment artifacts, the deployment instructions, and the user manual. 
+A user will be needed to conduct manual testing of the application. All failures should be reported.
 
 #### Exit criteria
-The exit criteria for the transition phase will be the complete product and all design documents. The design documents will include details on the development of the game as well as instructions for deployment and use. Instructions on deploying the makefile will be updated based on user input. Finally, all testing (manual, unit and integration) will be implemented and successful. It is important to add that the application will be easily maintainable for additional enhancments/future releases.
+The exit criteria for the transition phase will be the complete product and all design documents. The design documents 
+will include details on the development of the game as well as instructions for deployment and use. Instructions on 
+deploying the makefile will be updated based on user input. Finally, all testing (manual, unit and integration) will 
+be implemented and successful. It is important to add that the application will be easily maintainable for additional 
+enhancements/future releases.
 
 ## 3 Team
 
