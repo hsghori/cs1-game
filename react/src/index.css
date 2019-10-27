@@ -1,0 +1,18 @@
+.blockly-area {
+    position: relative;
+    margin: 50px auto;
+    width: 600px;
+    height: 600px;
+    border: 2px solid #000;
+}
+
+.game-piece {
+    position: absolute;
+    top: 1000px;
+    left: 20px;
+    width: 110px;
+    height: 120px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    background-image: url("./birds-120.png");
+}
