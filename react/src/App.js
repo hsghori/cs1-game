@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Block from './Block'
+import Block from './Block';
 
 // constant function and block size
 const getRandomPosition = () => {
@@ -7,7 +7,7 @@ const getRandomPosition = () => {
    let x = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
    let y = Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2;
    // return [x, y]
-   return [0, 0]
+   return [0, 0];
 }
 const BLOCK_SIZE = 1
 
@@ -54,16 +54,16 @@ class App extends Component {
       // console.log(head,", (x,y)=[",x,",",y , "]:", this.state.direction)
       switch (this.state.direction) {
          case 'WEST':
-            head = [x - BLOCK_SIZE, y]
+            head = [x - BLOCK_SIZE, y];
             break;
          case 'EAST':
-            head = [x + BLOCK_SIZE, y]
+            head = [x + BLOCK_SIZE, y];
             break;
          case 'NORTH':
-            head = [x, y - BLOCK_SIZE]
+            head = [x, y - BLOCK_SIZE];
             break;
          case 'SOUTH':
-            head = [x, y + BLOCK_SIZE]
+            head = [x, y + BLOCK_SIZE];
             break;
          default:
             break;
