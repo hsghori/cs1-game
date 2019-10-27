@@ -1,12 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+const Blockly = require('blockly');
 
+const toolbox = `
+  <xml id="toolbox" style="display: none">
+	<block type="controls_if"></block>
+	<block type="controls_repeat_ext"></block>
+	<block type="logic_compare"></block>
+	<block type="math_number"></block>
+	<block type="math_arithmetic"></block>
+	<block type="text"></block>
+	<block type="text_print"></block>
+  </xml>
+`;
 
-const Welcome = (props) => {
-  return <h1>Hello, {props.name}</h1>;
-};
-const element = <Welcome name="world" />;
-ReactDOM.render(
-  element,
-  document.getElementById('test-react')
-);
+Blockly.inject('app', {toolbox});

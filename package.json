@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "blockly": "^3.20191014.1",
     "jquery": "^3.4.1",
     "react": "^16.10.2",
+    "react-blockly": "^4.1.0",
     "react-dom": "^16.10.2",
     "styledot": "^0.1.566"
   },
@@ -24,18 +26,6 @@
     "webpack": "^4.41.2",
     "webpack-bundle-tracker": "^0.4.3",
     "webpack-cli": "^3.3.9"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
-    ]
   },
   "scripts": {
     "build": "webpack --config webpack.config.js --progress --colors --mode development",

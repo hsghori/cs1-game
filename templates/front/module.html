@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body_class %}index{% endblock %}
+
+{% block content %}
+    <div class="sd-card sd-elevation-2 game-module-card">
+        <div class="module-header">
+            <a
+                class="back-button"
+                href="{% url 'index' %}"
+                title="Back to homepage"
+            >
+                <div>&#x25c0;</div>
+            </a>
+            <h1>
+                {{ object.game_module.title }}
+            </h1>
+        </div>
+        <p>
+            {{ object.game_module.description }}
+        </p>
+    </div>
+    {% for game in object.user_games.all %}
+        <a class="sd-card sd-elevation-2 game-module-card"
+            href="/game/{{ game.id }}/">
+            <h2>
+                {{ game.game_level.title }}
+            </h2>
+            <p>
+                {{ game.game_level.description }}
+            </p>
+        </a>
+    {% endfor %}
+{% endblock %}

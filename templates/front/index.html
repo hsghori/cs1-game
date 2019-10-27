@@ -7,12 +7,14 @@
 {% block content %}
     <div id="test-react"></div>
     {% for module in object_list %}
-        <a class="sd-card sd-elevation-2 game-module-card">
+        <a
+            class="sd-card mod-card-2 sd-elevation-2 game-module-card"
+            href="{% url 'module' module.id %}">
             <h1>
-                {{ module.title }}
+                {{ module.game_module.title }}
             </h1>
             <p>
-                {{ module.description }}
+                {{ module.game_module.description }}
             </p>
         </a>
     {% endfor %}
@@ -21,6 +23,5 @@
         <a class="sd-button-small-no" href="{% url 'logout' %}">Logout</a>
     </div>
 
-    {% render_bundle 'main' 'js' %}
 {% endblock %}
 

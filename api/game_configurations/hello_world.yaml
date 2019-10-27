@@ -2,12 +2,15 @@ external_id: hello_world
 title: Hello World
 description: Learn about basic programming principles including input / output and variables
 status: active
+module_number: 0
 games:
   - external_id: intro
     title: Hello World!
     description: Say hello to the world!
     status: active
+    level_number: 0
   - external_id: basic_arithmetic
     title: Two plus Two
     description: Relearn that 1st grade math
     status: active
+    level_number: 1

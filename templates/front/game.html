@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body_class %}game{% endblock %}
+{% load render_bundle from webpack_loader %}
+
+{% block content %}
+    <div id="app" style="height: 480px; width: 600px;"></div>
+
+{% render_bundle 'main' 'js' %}
+{% endblock %}

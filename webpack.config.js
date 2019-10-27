@@ -5,33 +5,33 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 module.exports = {
-	context: __dirname,
+    context: __dirname,
 
-	entry: {
-		main: path.resolve(__dirname, './static/js/main.js'),
-	},
+    entry: {
+        main: path.resolve(__dirname, './static/js/main.js'),
+    },
 
-	output: {
-		path: path.resolve('./static/bundles/'),
-		filename: '[name]-[hash].js',
-	},
+    output: {
+        path: path.resolve('./static/bundles/'),
+        filename: '[name]-[hash].js',
+    },
 
-	plugins: [
-		new CleanWebpackPlugin(),
-		new BundleTracker({filename: './webpack-stats.json'}),
-	],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new BundleTracker({filename: './webpack-stats.json'}),
+    ],
 
-	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: ['babel-loader']
-			},
-		]
-	},
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+        ]
+    },
 
-	resolve: {
-	  extensions: ['*', '.js', '.jsx']
-	}
+    resolve: {
+      extensions: ['*', '.js', '.jsx']
+    }
 };

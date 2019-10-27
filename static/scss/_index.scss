@@ -2,3 +2,16 @@
   margin-bottom: 16px;
   width: 640px;
 }
+
+.module-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .back-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 16px;
+  }
+}
