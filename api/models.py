@@ -31,6 +31,8 @@ class GameLevelModel(models.Model):
     external_id = models.CharField(max_length=30, unique=True)
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
+    prompt = models.TextField(max_length=2000)
+    blocks = models.TextField(max_length=2000)
     module = models.ForeignKey(GameModuleModel, related_name='games', on_delete=models.CASCADE)
     level_number = models.IntegerField()
     status = models.CharField(max_length=1, choices=STATUS)
@@ -199,10 +201,17 @@ def create_user_game_level(sender, instance, created, **kwargs):
         return
 
     for user in User.objects.all():
-        user_game_module = UserGameModuleModel.objects.get(
-            user=user,
-            game_module=instance.module
-        )
+        try:
+            user_game_module = UserGameModuleModel.objects.get(
+                user=user,
+                game_module_id=instance.module.id
+            )
+        except UserGameModuleModel.DoesNotExist:
+            user_game_module = UserGameModuleModel.objects.create(
+                user=user,
+                game_module=instance.module,
+                status=UserGameModuleModel.STATUS.LOCKED,
+            )
         UserGameLevelModel.objects.create(
             user=user,
             game_level=instance,

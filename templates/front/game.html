@@ -4,7 +4,21 @@
 {% load render_bundle from webpack_loader %}
 
 {% block content %}
-    <div id="app" style="height: 480px; width: 600px;"></div>
+    <h2>
+        {{ object.game_level.title | safe }}
+    </h2>
+    <div>
+        <p>
+            {{ object.game_level.description | safe }}
+        </p>
+        <hr>
+        <p>
+            {{ object.game_level.prompt | safe }}
+        </p>
+    </div>
+    <div id="app" data-blocks="{{ object.game_level.blocks }}" style="height: 480px;"></div>
+    <button id="run" class="sd-button-small-yes run-button">Run</button>
+    <div id="console" class="output-console"></div>
 
 {% render_bundle 'main' 'js' %}
 {% endblock %}

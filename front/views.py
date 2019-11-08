@@ -7,16 +7,31 @@ from api.models import (
 
 class IndexView(LoginRequiredMixin, ListView):
     template_name = 'front/index.html'
-    queryset = UserGameModuleModel.objects.filter(game_module__status=GameModuleModel.STATUS.ACTIVE)
+
+    def get_queryset(self):
+        return UserGameModuleModel.objects.filter(
+            user=self.request.user,
+            game_module__status=GameModuleModel.STATUS.ACTIVE
+        )
 
 
 class ModuleView(LoginRequiredMixin, DetailView):
     template_name = 'front/module.html'
     pk_url_kwarg = 'module_pk'
-    queryset = UserGameModuleModel.objects.filter(game_module__status=GameModuleModel.STATUS.ACTIVE)
+
+    def get_queryset(self):
+        return UserGameModuleModel.objects.filter(
+            user=self.request.user,
+            game_module__status=GameModuleModel.STATUS.ACTIVE
+        )
 
 
 class GameView(LoginRequiredMixin, DetailView):
     template_name = 'front/game.html'
     pk_url_kwarg = 'game_pk'
-    queryset = UserGameLevelModel.objects.filter(game_level__status=GameLevelModel.STATUS.ACTIVE)
+
+    def get_queryset(self):
+        return UserGameLevelModel.objects.filter(
+            user=self.request.user,
+            game_level__status=GameLevelModel.STATUS.ACTIVE
+        )

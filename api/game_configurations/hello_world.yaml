@@ -7,6 +7,19 @@ games:
   - external_id: intro
     title: Hello World!
     description: Say hello to the world!
+    prompt: >
+      Let's start off with the basics!
+      <br>
+      This is your code editor. You will be using it to create small programs using a
+      system called Blockly. You will combine the blocks in the "workbench" on the left
+      in the "workspace" on the right to create programs.
+      <br>
+      For your first task, use the provided blocks to output "Hello world!". When you think
+      you have the correct configuration of blocks, hit the "Run" button to see how your
+      program runs.
+    blocks:
+      - text
+      - output
     status: active
     level_number: 0
   - external_id: basic_arithmetic
@@ -14,3 +27,30 @@ games:
     description: Relearn that 1st grade math
     status: active
     level_number: 1
+    prompt: >
+      But we can do so much more than print words onto the screen.
+      <br>
+      Now you have access to a "number" block and a basic arithmetic block. Use these blocks
+      to output the result of
+      <br>
+      1 + 2
+      <br>
+      3 * 8
+      <br>
+      7 - 6
+    blocks:
+      - output
+      - math_arithmetic
+      - math_number
+  - external_id: input_and_variables
+    title: Variables
+    description: A little bit of algebra
+    status: active
+    level_number: 2
+    prompt: placeholder
+    blocks:
+      - variable
+      - math_arithmetic
+      - math_single
+      - math_modulo
+      - output
