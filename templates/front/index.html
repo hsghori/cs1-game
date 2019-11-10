@@ -7,16 +7,27 @@
 {% block content %}
     <div id="test-react"></div>
     {% for module in object_list %}
-        <a
-            class="sd-card mod-card-2 sd-elevation-2 game-module-card"
-            href="{% url 'module' module.id %}">
-            <h1>
-                {{ module.game_module.title }}
-            </h1>
-            <p>
-                {{ module.game_module.description }}
-            </p>
-        </a>
+        {% if module.is_locked %}
+            <div class="sd-card mod-card-2 sd-elevation-2 game-module-card locked">
+                <h1>
+                    {{ module.game_module.title }}
+                </h1>
+                <p>
+                    LOCKED
+                </p>
+            </div>
+        {% else %}
+            <a
+                class="sd-card mod-card-2 sd-elevation-2 game-module-card"
+                href="{% url 'module' module.id %}">
+                <h1>
+                    {{ module.game_module.title }}
+                </h1>
+                <p>
+                    {{ module.game_module.description }}
+                </p>
+            </a>
+        {% endif %}
     {% endfor %}
 
     <div>

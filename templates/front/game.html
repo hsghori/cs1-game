@@ -2,6 +2,7 @@
 
 {% block body_class %}game{% endblock %}
 {% load render_bundle from webpack_loader %}
+{% csrf_token %}
 
 {% block content %}
     <h2>
@@ -16,9 +17,28 @@
             {{ object.game_level.prompt | safe }}
         </p>
     </div>
-    <div id="app" data-blocks="{{ object.game_level.blocks }}" style="height: 480px;"></div>
+    <div class="game-body">
+        <div
+            id="app"
+            class="workspace"
+            data-id="{{ object.id }}"
+            data-blocks="{{ object.game_level.blocks }}"
+            data-inputs="{{ object.game_level.get_random_input_values }}"
+            style="height: 480px;">
+        </div>
+        <div class="console">
+            <div class="input-console">
+                <strong>Inputs:</strong>
+                <div id="inputs"></div>
+            </div>
+            <div class="output-console">
+                <strong>Outputs:</strong>
+                <div id="outputs"></div>
+            </div>
+        </div>
+    </div>
+
     <button id="run" class="sd-button-small-yes run-button">Run</button>
-    <div id="console" class="output-console"></div>
 
 {% render_bundle 'main' 'js' %}
 {% endblock %}

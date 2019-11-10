@@ -20,6 +20,8 @@ games:
     blocks:
       - text
       - output
+    inputs: none
+    num_inputs: 0
     status: active
     level_number: 0
   - external_id: basic_arithmetic
@@ -27,6 +29,8 @@ games:
     description: Relearn that 1st grade math
     status: active
     level_number: 1
+    inputs: none
+    num_inputs: 0
     prompt: >
       But we can do so much more than print words onto the screen.
       <br>
@@ -39,18 +43,21 @@ games:
       <br>
       7 - 6
     blocks:
-      - output
       - math_arithmetic
       - math_number
+      - output
   - external_id: input_and_variables
     title: Variables
     description: A little bit of algebra
     status: active
     level_number: 2
+    inputs: int
+    num_inputs: 10
     prompt: placeholder
     blocks:
       - variable
       - math_arithmetic
       - math_single
       - math_modulo
+      - input
       - output

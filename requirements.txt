@@ -4,3 +4,4 @@ pyyaml
 django-webpack-loader
 django-model-utils
 psycopg2
+pytest

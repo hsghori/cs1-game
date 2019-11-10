@@ -39,6 +39,8 @@ for file in glob.glob('./api/game_configurations/*.yaml'):
                     level_number=game_config['level_number'],
                     prompt=game_config['prompt'],
                     blocks=', '.join(game_config['blocks']),
+                    inputs=game_config['inputs'],
+                    num_inputs=game_config['num_inputs']
                 )
             else:
                 game = games[0]
@@ -48,4 +50,6 @@ for file in glob.glob('./api/game_configurations/*.yaml'):
                 game.level_number = game_config['level_number']
                 game.prompt = game_config['prompt']
                 game.blocks = ', '.join(game_config['blocks'])
+                game.inputs = game_config['inputs']
+                game.num_inputs = game_config['num_inputs']
                 game.save()

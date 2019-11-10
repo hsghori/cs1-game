@@ -1,3 +1,4 @@
+import random
 from django.db import models
 from model_utils import Choices
 from django.contrib.auth.models import User
@@ -27,12 +28,24 @@ class GameLevelModel(models.Model):
         ('A', 'ACTIVE', 'ACTIVE'),
         ('I', 'INACTIVE', 'INACTIVE')
     )
+    INPUT_TYPES = Choices(
+        ('none', 'NONE', 'None'),
+        ('int', 'INTEGER', 'Integer'),
+        ('pos_int', 'POSITIVE_INTEGER', 'Positive integer'),
+        ('neg_int', 'NEGATIVE_INTEGER', 'Negative integer'),
+        ('list_int', 'LIST_INTEGER', 'List integer'),
+        ('list_pos_int', 'LIST_POSITIVE_INTEGER', 'List positive integer'),
+        ('list_neg_int', 'LIST_NEGATIVE_INTEGER', 'List negative integer'),
+    )
     id = models.AutoField(primary_key=True)
     external_id = models.CharField(max_length=30, unique=True)
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=200)
     prompt = models.TextField(max_length=2000)
     blocks = models.TextField(max_length=2000)
+    inputs = models.CharField(max_length=128)
+    num_inputs = models.IntegerField(default=0)
+    list_input_site = models.IntegerField(default=0)
     module = models.ForeignKey(GameModuleModel, related_name='games', on_delete=models.CASCADE)
     level_number = models.IntegerField()
     status = models.CharField(max_length=1, choices=STATUS)
@@ -41,6 +54,28 @@ class GameLevelModel(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['level_number', 'module'], name='unique_level_in_module')
         ]
+
+    def get_random_input_values(self):
+        if self.inputs == self.INPUT_TYPES.NONE:
+            return []
+        elif self.inputs == self.INPUT_TYPES.INTEGER:
+            return [random.randint(-100, 100) for _ in range(self.num_inputs)]
+        elif self.inputs == self.INPUT_TYPES.POSITIVE_INTEGER:
+            return [random.randint(0, 100) for _ in range(self.num_inputs)]
+        elif self.inputs == self.INPUT_TYPES.NEGATIVE_INTEGER:
+            return [random.randint(-100, 0) for _ in range(self.num_inputs)]
+        elif self.inputs == self.INPUT_TYPES.LIST_INTEGER:
+            return [
+                [random.randint(-100, 100) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+            ]
+        elif self.inputs == self.INPUT_TYPES.LIST_POSITIVE_INTEGER:
+            return [
+                [random.randint(0, 100) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+            ]
+        elif self.inputs == self.INPUT_TYPES.LIST_NEGATIVE_INTEGER:
+            return [
+                [random.randint(-100, 0) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+            ]
 
 
 class UserGameModuleModel(models.Model):
@@ -59,6 +94,14 @@ class UserGameModuleModel(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['user', 'game_module'], name='unique_user_module'),
         ]
+
+    @property
+    def is_complete(self):
+        return self.status == self.STATUS.COMPLETE
+
+    @property
+    def is_locked(self):
+        return self.status == self.STATUS.LOCKED
 
     def mark_complete(self):
         """
@@ -110,6 +153,14 @@ class UserGameLevelModel(models.Model):
         constraints = [
             models.UniqueConstraint(fields=['user', 'game_level'], name='unique_user_level'),
         ]
+
+    @property
+    def is_complete(self):
+        return self.status == self.STATUS.COMPLETE
+
+    @property
+    def is_locked(self):
+        return self.status == self.STATUS.LOCKED
 
     def mark_complete(self):
         """

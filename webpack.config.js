@@ -8,6 +8,7 @@ module.exports = {
     context: __dirname,
 
     entry: {
+        polyfill: 'babel-polyfill',
         main: path.resolve(__dirname, './static/js/main.js'),
     },
 

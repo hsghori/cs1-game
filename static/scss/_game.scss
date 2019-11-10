@@ -1,10 +1,38 @@
 .run-button {
   margin-top: 16px;
+  margin-bottom: 16px;
 }
 
-.output-console {
-  padding: 16px;
-  background-color: $lime;
-  opacity: 0.5;
-  min-height: 64px;
+
+.console {
+  display: flex;
+  flex-direction: column;
+
+  >div {
+    padding: 16px;
+    min-height: 64px;
+  }
+
+  .output-console {
+    background: rgba(146, 199, 70, 0.5);
+    flex: 0.7;
+  }
+
+  .input-console {
+    background: rgba(83, 200, 237, 0.5);
+    flex: 0.3;
+  }
+}
+
+.game-body {
+  display: flex;
+  flex-direction: row;
+
+  .workspace {
+    flex: 0.7;
+  }
+
+  .console {
+    flex: 0.3;
+  }
 }

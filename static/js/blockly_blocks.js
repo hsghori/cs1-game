@@ -14,6 +14,13 @@ const outputBlock = {
   "tooltip": "Put the value in the final output",
 };
 
+const inputBlock = {
+  'type': 'input',
+  'message0': 'input',
+  'output': null,
+  'tooltip': "Put the value in the final output",
+};
+
 
 export const initBlocks = () => {
   Blockly.Blocks['output']  = {
@@ -22,10 +29,21 @@ export const initBlocks = () => {
 	}
   };
 
-  Blockly.JavaScript['output'] = function(block) {
+  Blockly.Blocks['input'] = {
+    init: function() {
+      this.jsonInit(inputBlock);
+    }
+  };
+
+  Blockly.JavaScript['output'] = (block) => {
       let value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
       return `
-          document.getElementById('console').innerText += ${value} + '\\n';
+          document.getElementById('outputs').innerText += '>>> ' + ${value} + '\\n';
+          outputArr.push(${value});
       `;
+  };
+
+  Blockly.JavaScript['input'] = (block) => {
+    return ['inputArr[inputIdx++]', Blockly.JavaScript.ORDER_ATOMIC];
   };
 };
