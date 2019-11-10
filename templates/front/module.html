@@ -21,14 +21,26 @@
         </p>
     </div>
     {% for game in object.user_games.all %}
-        <a class="sd-card sd-elevation-2 game-module-card"
-            href="/game/{{ game.id }}/">
-            <h2>
-                {{ game.game_level.title }}
-            </h2>
-            <p>
-                {{ game.game_level.description }}
-            </p>
-        </a>
+        {% if game.is_locked %}
+            <div class="sd-card sd-elevation-2 game-module-card locked">
+                <h2>
+                    {{ game.game_level.title }}
+                </h2>
+                <p>
+                    LOCKED
+                </p>
+            </div>
+        {% else %}
+            <a
+                class="sd-card sd-elevation-2 game-module-card"
+                href="/game/{{ game.id }}/">
+                <h2>
+                    {{ game.game_level.title }}
+                </h2>
+                <p>
+                    {{ game.game_level.description }}
+                </p>
+            </a>
+        {% endif %}
     {% endfor %}
 {% endblock %}

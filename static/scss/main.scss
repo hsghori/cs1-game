@@ -19,8 +19,19 @@ body {
 
     @import "index";
   }
+
+  &.game {
+    @import "game";
+  }
 }
 
 .hide {
   display: none;
+}
+
+.header-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 48px;
 }

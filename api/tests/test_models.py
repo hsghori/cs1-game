@@ -1,6 +1,39 @@
+import random
 from django.test import TestCase
-from api import models
 from django.contrib.auth.models import User
+from api import models
+
+
+class TestGameLevel(TestCase):
+
+    def setUp(self):
+        self.module_1 = models.GameModuleModel.objects.create(
+            external_id='fake_1',
+            title='fake_1',
+            description='fake_1',
+            module_number=0,
+            status=models.GameModuleModel.STATUS.ACTIVE,
+        )
+
+    def test_get_inputs(self):
+        for idx, (input_type, _) in enumerate(models.GameLevelModel.INPUT_TYPES):
+            num_inputs = random.randint(1, 10)
+            game = models.GameLevelModel.objects.create(
+                external_id=f'fake_1{idx}',
+                title='fake',
+                description='fake',
+                module_id=self.module_1.id,
+                level_number=idx,
+                status=models.GameLevelModel.STATUS.ACTIVE,
+                inputs=input_type,
+                num_inputs=num_inputs,
+                prompt='',
+                blocks='',
+            )
+            if input_type == models.GameLevelModel.INPUT_TYPES.NONE:
+                assert len(game.get_random_input_values()) == 0
+            else:
+                assert len(game.get_random_input_values()) == num_inputs
 
 
 class TestUserGameModule(TestCase):
@@ -19,6 +52,10 @@ class TestUserGameModule(TestCase):
             description='fake_11',
             module=self.module_1,
             level_number=0,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=5,
+            prompt='',
+            blocks='',
             status='A'
         )
         self.game_12 = models.GameLevelModel.objects.create(
@@ -26,6 +63,10 @@ class TestUserGameModule(TestCase):
             title='fake_12',
             description='fake_12',
             module=self.module_1,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=5,
+            prompt='',
+            blocks='',
             level_number=1,
             status='A'
         )
@@ -41,7 +82,11 @@ class TestUserGameModule(TestCase):
             title='fake_21',
             description='fake_21',
             module=self.module_2,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=5,
             level_number=0,
+            prompt='',
+            blocks='',
             status='A'
         )
         self.game_22 = models.GameLevelModel.objects.create(
@@ -49,7 +94,11 @@ class TestUserGameModule(TestCase):
             title='fake_22',
             description='fake_22',
             module=self.module_2,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=5,
             level_number=1,
+            prompt='',
+            blocks='',
             status='A'
         )
         self.user = User.objects.create_user(
@@ -79,6 +128,8 @@ class TestUserGameModule(TestCase):
             description='fake_13',
             module=module,
             level_number=2,
+            prompt='',
+            blocks='',
             status='A'
         )
         user_level = models.UserGameLevelModel.objects.filter(game_level=level, user=self.user).first()
@@ -133,6 +184,8 @@ class TestUserGameModule(TestCase):
             description='fake_13',
             module=self.module_1,
             level_number=3,
+            prompt='',
+            blocks='',
             status='A'
         )
         game = models.UserGameLevelModel.objects.get(user=self.user, game_level=self.game_12)

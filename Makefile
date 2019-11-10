@@ -1,15 +1,24 @@
-ACTIVATE = source .venv/bin/activate &&
-
 all:
-	make venv
-	make npm
+	make python_install
+	make npm_install
 	make build_game_configs
+	make make_migrations
+	make migrate
 
 start:
-	$(ACTIVATE) python manage.py runserver
+	@docker-compose up
 
-npm:
-	@npm ci
+build:
+	@docker-compose build
+
+shell:
+	@docker exec -ti game bash
+
+migrate:
+	python manage.py migrate
+
+make_migrations:
+	python manage.py makemigrations
 
 watch:
 	make watch_css & make watch_js
@@ -20,6 +29,13 @@ watch_js:
 watch_css:
 	@npm run watch:css
 
+build_static:
+	@npm run build:js
+	@npm run build:css
+
+python_install:
+	pip install -r requirements.txt
+
 npm_install:
 	@npm ci
 
@@ -27,11 +43,7 @@ npm_lock:
 	@npm install
 
 build_game_configs:
-	$(ACTIVATE) python manage.py shell < compile_configs.py
+	python manage.py shell < compile_configs.py
 
 clean_data:
-	$(ACTIVATE) python manage.py flush
-
-venv:
-	python3 -m venv .venv
-	$(ACTIVATE) pip install -r requirements.txt
+	python manage.py flush

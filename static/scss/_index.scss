@@ -1,6 +1,10 @@
 .game-module-card {
   margin-bottom: 16px;
   width: 640px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .module-header {
@@ -14,4 +18,21 @@
     justify-content: center;
     margin-right: 16px;
   }
+}
+
+.locked {
+  background-color: $gray1;
+}
+
+.locked::after {
+  background-image: url("../img/padlock.svg");
+  background-size: 100% 100%;
+  content: "";
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }

@@ -8,19 +8,46 @@ games:
     title: Basic if statements
     description: Write some basic if statements
     status: active
+    prompt: placebolder
     level_number: 0
+    inputs: int
+    num_inputs: 10
+    blocks:
+      - text
+      - output
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
+    prompt: placebolder
     status: active
     level_number: 1
+    inputs: int
+    num_inputs: 10
+    blocks:
+      - text
+      - output
+      - input
   - external_id: if_else_if_else
     title: One more time now
     description: Else if
+    prompt: placebolder
     status: active
     level_number: 2
+    inputs: int
+    num_inputs: 10
+    blocks:
+      - text
+      - output
+      - input
   - external_id: switch
     title: Switch hitting
+    prompt: placebolder
     description: Switch
     status: active
     level_number: 3
+    inputs: int
+    num_inputs: 10
+    blocks:
+      - text
+      - output
+      - input
