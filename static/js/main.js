@@ -36,6 +36,21 @@ const getToolbox = () => {
 	}
 };
 
+const options = {
+	toolbox: getToolbox(),
+	collapse: false,
+	comments: false,
+	disable: false,
+	maxBlocks: Infinity,
+	trashcan: true,
+	horizontalLayout: false,
+	toolboxPosition: 'start',
+	css: true,
+	media: 'https://blockly-demo.appspot.com/static/media/',
+	sounds: true,
+	oneBasedIndex: true
+};
+
 const setInput = () => {
 	const inputArr = JSON.parse(document.getElementById('app').dataset.inputs);
 	const inputString = inputArr.length
@@ -79,7 +94,7 @@ const checkGame = async (game_pk, inputArr, outputArr) => {
 
 $('document').ready(() => {
 	initBlocks();
-	const workspace = Blockly.inject('app', {toolbox: getToolbox()});
+	const workspace = Blockly.inject('app', options);
 	const id = document.getElementById('app').dataset.id;
 	const inputArr = setInput();
 	const outputArr = [];

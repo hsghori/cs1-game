@@ -15,6 +15,8 @@ games:
     blocks:
       - text
       - output
+      - controls_if
+      - logic_boolean
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
@@ -27,6 +29,8 @@ games:
       - text
       - output
       - input
+      - controls_if
+      - logic_boolean
   - external_id: if_else_if_else
     title: One more time now
     description: Else if
@@ -39,6 +43,8 @@ games:
       - text
       - output
       - input
+      - controls_if
+      - logic_boolean
   - external_id: switch
     title: Switch hitting
     prompt: placebolder
@@ -51,3 +57,5 @@ games:
       - text
       - output
       - input
+      - block_dropdown
+
