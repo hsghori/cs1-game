@@ -36,7 +36,7 @@ const getToolbox = () => {
 	}
 };
 
-const options = {
+const workspaceOptions = {
 	toolbox: getToolbox(),
 	collapse: false,
 	comments: false,
@@ -94,7 +94,7 @@ const checkGame = async (game_pk, inputArr, outputArr) => {
 
 $('document').ready(() => {
 	initBlocks();
-	const workspace = Blockly.inject('app', options);
+	const workspace = Blockly.inject('app', workspaceOptions);
 	const id = document.getElementById('app').dataset.id;
 	const inputArr = setInput();
 	const outputArr = [];
