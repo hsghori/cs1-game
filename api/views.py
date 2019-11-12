@@ -35,10 +35,17 @@ class CheckGameLevelViewSet(ViewSet):
         expected_outputs = func(serializer.validated_data['inputs'])
         passed = expected_outputs == serializer.validated_data['outputs']
         if passed:
-            user_game.mark_complete()
-            return Response({'passed': True})
+            try:
+                user_game.mark_complete()
+                next_game = user_game.next_game
+            except models.NoMoreEntitiesException:
+                next_game = None
+            return Response({
+                'passed': True,
+                'next_game': next_game
+            })
 
-        return Response({'passed': False})
+        return Response({'passed': False, 'next_game': None})
 
     @staticmethod
     def get_solution_function(user_game):
