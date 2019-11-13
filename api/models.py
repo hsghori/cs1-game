@@ -192,6 +192,25 @@ class UserGameLevelModel(models.Model):
         next_game.status = UserGameLevelModel.STATUS.INCOMPLETE
         next_game.save()
 
+    @property
+    def next_game(self):
+        remaining_games = UserGameLevelModel.objects.filter(
+            user=self.user,
+            game_level__level_number__gt=self.game_level.level_number,
+        )
+        if remaining_games:
+            return remaining_games.first().id
+
+        remaining_modules = UserGameModuleModel.objects.filter(
+            user=self.user,
+            game_module__module_number__gt=self.user_game_module.game_module.module_number
+        )
+        if not remaining_modules:
+            return None
+        next_module = remaining_modules.first()
+        first_game = next_module.user_games.filter(user=self.user).first()
+        return first_game.id
+
 
 @receiver(post_save, sender=User)
 def create_user_game_data(sender, instance, created, **kwargs):

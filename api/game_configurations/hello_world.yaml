@@ -29,35 +29,94 @@ games:
     description: Relearn that 1st grade math
     status: active
     level_number: 1
-    inputs: none
-    num_inputs: 0
+    inputs: pos_int
+    num_inputs: 2
     prompt: >
-      But we can do so much more than print words onto the screen.
+      But we can do so much more than print words onto the screen. Computers allow us to do complex math
+      quickly and easily.
       <br>
-      Now you have access to a "number" block and a basic arithmetic block. Use these blocks
-      to output the result of
-      <br>
-      1 + 2
-      <br>
-      3 * 8
-      <br>
-      7 - 6
+      Yow now have access to three new blocks
+      <ul>
+        <li>The <strong>input</strong> block takes the next value from the input stream.</li>
+        <li>The <strong>number</strong> block gives you access to constant integers</li>
+        <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers</li>
+      </ul>
+      Given these blocks, output the sum of the two provided input values.
     blocks:
       - math_arithmetic
       - math_number
+      - input
       - output
   - external_id: input_and_variables
-    title: Variables
-    description: A little bit of algebra
+    title: Reverse!
+    description: Learn about inputs and variables.
     status: active
     level_number: 2
-    inputs: int
-    num_inputs: 10
-    prompt: placeholder
+    inputs: pos_int
+    num_inputs: 3
+    prompt: >
+      The input blocks only allow us to access the input one time and in a defined order. But what if you need to
+      use an input value more than once or out of order? What if you forget what the inputs represent?
+      <br>
+      You now have access to a <strong>variable</strong> block which allows you to store specific values as named variables.
+      To create a new variable, click the <strong>Create Variable</strong> button in the <strong>Variable</strong> category
+      in the workbench.
+      <br>
+      Now you should have access to blocks to:
+      <ul>
+        <li><strong>Setter</strong> block - Set the variable to a new value</li>
+        <li><strong>Getter</strong> block - Gets the value of the variable</li>
+      </ul>
+      You can create more than one variable by clicking <strong>Create Variable</strong> again. The setter and getter
+      blocks will allow you to toggle between variables and rename your variables.
+      <br>
+      We have provided the input in a specific order. Use the variable blocks to output the input values in reverse.
+    blocks:
+      - variable
+      - input
+      - output
+  - external_id: input_variables_arithmetic
+    title: Variables
+    description: Solve for X
+    status: active
+    level_number: 3
+    inputs: pos_int
+    num_inputs: 3
+    prompt: >
+      Consider a ball rolling along the floor. Physics tells us that we can calculate the distance an object has traveled
+      using the equation:
+      <br>
+      distance = speed * time + 0.5 * acceleration * time ^ 2
+      <br>
+      You will be provided with the following three input values:
+      <ol>
+        <li>Time - the time the object spends rolling before it stops.</li>
+        <li>Speed - the speed at which the object starts rolling.</li>
+        <li>Acceleration - the rate at which the speed is increasing.</li>
+      </ol>
+      <br>
+      Output the distance an object rolls given the input values.
     blocks:
       - variable
       - math_arithmetic
       - math_single
-      - math_modulo
+      - math_number
       - input
       - output
+  - external_id: multiply_by_eight
+    title: Octopus
+    description: Get ready to think hard about some basic math
+    level_number: 4
+    inputs: pos_int
+    num_inputs: 1
+    prompt: >
+      Given an <strong>addition</strong> block and some variable blocks, can you
+      multiply the input value by 8.
+      <br>
+      Hint: There is a way to do this in only three additions instead of eight.
+    status: active
+    blocks:
+      - variable
+      - input
+      - output
+      - math_addition

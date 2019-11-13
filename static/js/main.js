@@ -38,10 +38,9 @@ const getToolbox = () => {
 
 const setInput = () => {
 	const inputArr = JSON.parse(document.getElementById('app').dataset.inputs);
-	const inputString = inputArr.length
-		? inputArr.join('\n')
+	document.getElementById('inputs').innerHTML = inputArr.length
+		? inputArr.join('<br>')
 		: 'None';
-	$('#inputs').text(inputString);
 	return inputArr;
 };
 
@@ -49,23 +48,29 @@ const checkGame = async (game_pk, inputArr, outputArr) => {
 	const csrftoken = Cookies.get('csrftoken');
 	const response = await axios.post(
 		`/api/check-game/${game_pk}/`,
-		{'inputs': inputArr, 'outputs': outputArr},
+		{inputs: inputArr, outputs: outputArr},
 		{headers: {'X-CSRFToken': csrftoken}}
 	);
 	const data = response.data;
 	if (data.passed) {
+		const nextLink = data.next_game
+			? `/game/${data.next_game}/`
+			: '/';
 		const modalContents = `
-			<h3>Congrats!</h3>
+			<h3>Good work!</h3>
 			<p>Your solution passed!</p>
-			<a class="sd-button" href="/">Next</a>
+			<div style="display: flex; flex-direction: row; justify-content: space-around">
+				<a class="sd-button" href="${nextLink}">Next</a>
+			</div>
 		`;
 		modalInit.default({
 			contents: modalContents,
+			includeDismissCta: false,
 		});
 	} else {
 		const modalContents = `
 			<h3>Try again!</h3>
-			<p>Your solution did not pass.</p>
+			<p>Your solution did not match the expected output.</p>
 		`;
 		modalInit.default({
 			contents: modalContents,
@@ -82,19 +87,31 @@ $('document').ready(() => {
 	const workspace = Blockly.inject('app', {toolbox: getToolbox()});
 	const id = document.getElementById('app').dataset.id;
 	const inputArr = setInput();
-	const outputArr = [];
+	
 	$('#run').click(() => {
 		window.LoopTrap = 1000;
 		Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
 		let code = Blockly.JavaScript.workspaceToCode(workspace);
 		console.log(code);
+		const outputArr = [];
 		const inputIdx = 0;
+		let toOutput = null;
 		$('#outputs').text('');
 		try {
 			eval(code);
 			checkGame(id, inputArr, outputArr);
 		} catch (e) {
-			alert('An error has occurred');
+			const modalContents = `
+				<h3>Whoops</h3>
+				<p>Your solution failed with an error.</p>
+				<p>${e}</p>
+			`;
+			modalInit.default({
+				contents: modalContents,
+				dismissText: 'Try again!',
+				ctaPosition: 'center',
+				includeDismissCta: true,
+			});
 		}
 	});
 });
