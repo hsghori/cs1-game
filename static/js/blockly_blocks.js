@@ -67,9 +67,13 @@ export const initBlocks = () => {
   Blockly.JavaScript['output'] = (block) => {
       let value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
       return `
-          toOutput = ${value}; 
-          document.getElementById('outputs').innerText += '>>> ' + toOutput + '\\n';
-          outputArr.push(toOutput);
+          (() => {
+            toOutput = ${value}; 
+            if (showOutput) {
+              document.getElementById('outputs').innerText += '>>> ' + toOutput + '\\n';
+            }
+            outputArr.push(toOutput);
+          })();
       `;
   };
 
