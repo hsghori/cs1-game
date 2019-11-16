@@ -41,7 +41,7 @@ games:
     inputs: int
     num_inputs: 2
     prompt: >
-      You can practice another version of condition (if /else) with boolean value [True/False]
+      You can practice - printing boolean value [True/False] based on if-condition.
       <br>
       Yow will be given two integers (a, b), print True/False based on <strong>if</strong> condition
       <ul>

@@ -45,22 +45,19 @@ def _if_else(inputs=None):
     ret = False
     if(a > b):
         ret = True
-    return [ret]
+    return ret
 
 def _if_else_if_else(inputs=None):
     a = inputs[0]
     b = inputs[1]
     c = inputs[2]
     d = inputs[3]
-    # print(a,b,c,d)
-    ret = 0
     if(a > b):
-        ret = a + b
+        ret [a + b]
     elif( c < d):
-        ret = c + d
+        ret [c + d]
     else: 
-        ret = 'No Answer' 
-    return [ret]
+        ret ['No Answer']
 
 
 SOLUTIONS = {
