@@ -30,17 +30,29 @@ def _multiply_by_eight(inputs=None):
     return [8*i for i in inputs]
 
 def _basic_if(inputs=None):
-    return [sum(inputs)]
+    a = inputs[0]
+    b = inputs[1]
+    ret = ''
+    if(a > b):
+        ret = 'greater'
+    else: 
+        ret = 'less'
+    return [ret]
 
 def _if_else(inputs=None):
-    return [inputs[0] - inputs[1]]
+    a = inputs[0]
+    b = inputs[1]
+    ret = False
+    if(a > b):
+        ret = True
+    return [ret]
 
 def _if_else_if_else(inputs=None):
     a = inputs[0]
     b = inputs[1]
     c = inputs[2]
     d = inputs[3]
-    print(a,b,c,d)
+    # print(a,b,c,d)
     ret = 0
     if(a > b):
         ret = a + b
