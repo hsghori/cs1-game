@@ -11,10 +11,27 @@ games:
     prompt: placebolder
     level_number: 0
     inputs: int
-    num_inputs: 10
+    num_inputs: 2
+    prompt: >
+      You can practice basic (if) condition statement with basic blocks.
+      <br>
+      Yow will be given two integers (a, b), print value of addition [a + b]
+      <ul>
+        <li>The <strong>Inputs</strong> will give you two integers randomly generated.</li>
+        <li>You might want to use the first condition block from the category <strong>condition (if-else) </strong> </li>
+        <li>There are two plug-in sockets (if /do) in <strong>if</strong> block</li><br>
+        <li>Instruction</li>
+        <ol>The <strong>logic_boolean[true/false]</strong> block can be plugged into input of <strong>if</strong></ol>
+        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong></ol>
+        <ol>The <strong>number</strong> block can be plugged into input of the <strong>output</strong></ol>
+        <ol>You need to set the number of value which is the sum of two inputs </ol>
+      </ul>
+      Given these blocks, print the addition of the two integers (a, b) provided as input values.
     blocks:
-      - text
       - output
+      - condition
+      - math_number
+      - logic_boolean
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
@@ -22,11 +39,30 @@ games:
     status: active
     level_number: 1
     inputs: int
-    num_inputs: 10
+    num_inputs: 2
+    prompt: >
+      You can practice another version of condition (if /else) based on your boolean value[true/false]
+      <br>
+      Yow will be given two integers (a, b), print value of subtraction [a - b] in <strong>else</strong> condition
+      <ul>
+        <li>The <strong>Inputs</strong> will give you two integers randomly generated.</li>
+        <li>There are three plug-in sockets (if-do-else) in <strong>if-else</strong> block</li>
+        <li>You might want to use the second condition block from the category <strong>condition (if-else) </strong> </li><br>
+        <li>Instruction</li>
+        <ol>The <strong>logic_boolean[true/false]</strong> can be plugged in to input of <strong>if</strong></ol>
+        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> or <strong>else</strong></ol>
+        <ol>The <strong>arithmetic</strong> block can be plugged into input of the <strong>output</strong></ol>
+        <ol>Two <strong>number</strong> blocks can be plugged into input of the <strong>arithmetic</strong></ol>
+        <ol>Try to change the value of boolean or operator(+,-,x,/,^) from the <strong>arithmetic</strong> block</ol>
+        <ol>You need to set the number of value which will be the difference of two input integers </ol>
+      </ul>
+      Given these blocks, from the <strong>else</strong>, print the subtraction of the two integers (a, b) provided as input values.
     blocks:
-      - text
       - output
-      - input
+      - condition
+      - math_number
+      - math_arithmetic
+      - logic_boolean
   - external_id: if_else_if_else
     title: One more time now
     description: Else if
@@ -34,20 +70,24 @@ games:
     status: active
     level_number: 2
     inputs: int
-    num_inputs: 10
+    num_inputs: 4
+    prompt: >
+      You can practice another version of condition (if / else-if / else) based on your assembling blocks.
+      <br>
+      Yow will be given four integers (a, b, c, d)
+      <ul>
+        <li>The <strong>Inputs</strong> will give you four integers randomly generated.</li>
+        <li>There are five plug-in sockets (if-do-elseif-do-else) in <strong>if-elseif-else</strong> block</li>
+        <li>You might want to use the third condition block from the category <strong>condition (if-else) </strong> </li><br>
+        <li>Instruction</li>
+        <ol>In the <strong>if</strong> condition plugin, compare 1st(a) and 2nd(b) integers if a > b, then print sum(a+b) </ol>
+        <ol>If not, in the second <strong>else-if</strong> condition plugin, compare 3rd(c) and 4th(d) integers if c < d, then print sum(c+d) </ol>
+        <ol>If both conditions are not satisfied, print out 'No Answer'</ol>
+      </ul>
     blocks:
       - text
       - output
-      - input
-  - external_id: switch
-    title: Switch hitting
-    prompt: placebolder
-    description: Switch
-    status: active
-    level_number: 3
-    inputs: int
-    num_inputs: 10
-    blocks:
-      - text
-      - output
-      - input
+      - condition
+      - logic_compare
+      - math_number
+      - math_arithmetic

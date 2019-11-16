@@ -10,11 +10,22 @@ const { initBlocks } = require('./blockly_blocks');
 const getToolbox = () => {
 	const blocks = document.getElementById('app').dataset.blocks.split(', ');
 	const variableIdx = blocks.findIndex((el) => el === 'variable');
+	const conditonIdx = blocks.findIndex((el) => el === 'condition');
 	let extraCategories = '';
 	if (variableIdx >= 0) {
 		blocks.splice(variableIdx, 1);
 		extraCategories = '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';
 	}
+	let ifCategories = '';
+	if (conditonIdx >= 0) {
+		blocks.splice(conditonIdx, 1);
+		ifCategories = '<category name="Condition (if-else)" colour="#a55b80">';
+		ifCategories += '<block type="controls_if"></block>';
+		ifCategories += '<block type="controls_if"><mutation else="1"></mutation></block>';
+		ifCategories += '<block type="controls_if"><mutation elseif="1" else="1"></mutation></block>';
+		ifCategories += '</category>';
+	}
+
 	const standardBlocks = blocks
 		.map((block) => `<block type="${block}"></block>`)
 		.reduce((prev, curr, idx) => prev + '\n' +  curr, '');
@@ -27,6 +38,15 @@ const getToolbox = () => {
 				${extraCategories}
 			</xml>
 		`;
+	} else if(ifCategories) {
+		return `
+			<xml id="toolbox">
+				<category name="Basic Operations">
+					${standardBlocks}
+				</category>
+				${ifCategories}
+			</xml>
+		`;
 	} else {
 		return `
 			<xml id="toolbox">
@@ -34,6 +54,21 @@ const getToolbox = () => {
 			</xml>
 		`;
 	}
+};
+
+const workspaceOptions = {
+	toolbox: getToolbox(),
+	collapse: false,
+	comments: false,
+	disable: false,
+	maxBlocks: Infinity,
+	trashcan: true,
+	horizontalLayout: false,
+	toolboxPosition: 'start',
+	css: true,
+	media: 'https://blockly-demo.appspot.com/static/media/',
+	sounds: true,
+	oneBasedIndex: true
 };
 
 const setInput = () => {
@@ -84,7 +119,7 @@ const checkGame = async (game_pk, inputArr, outputArr) => {
 
 $('document').ready(() => {
 	initBlocks();
-	const workspace = Blockly.inject('app', {toolbox: getToolbox()});
+	const workspace = Blockly.inject('app', workspaceOptions);
 	const id = document.getElementById('app').dataset.id;
 	const inputArr = setInput();
 	
