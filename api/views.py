@@ -32,9 +32,10 @@ class CheckGameLevelViewSet(ViewSet):
         user_game = models.UserGameLevelModel.objects.get(id=pk)
 
         func = CheckGameLevelViewSet.get_solution_function(user_game)
-        expected_outputs = func(serializer.validated_data['inputs'])
-        passed = expected_outputs == serializer.validated_data['outputs']
-        if passed:
+        for inputArr, outputArr in zip(serializer.validated_data['inputs'], serializer.validated_data['outputs']):
+            if func(inputArr) != outputArr:
+                break
+        else:  # all inputs have passed
             try:
                 user_game.mark_complete()
                 next_game = user_game.next_game

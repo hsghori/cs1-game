@@ -5,9 +5,8 @@ from . import views
 
 router = DefaultRouter()
 router.register(
-    r'check-game', views.CheckGameLevelViewSet, base_name='check-game'
+    r'check-game', views.CheckGameLevelViewSet, basename='check-game',
 )
-
 urlpatterns = [
     path('', include(router.urls)),
 ]

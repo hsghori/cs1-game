@@ -56,25 +56,47 @@ class GameLevelModel(models.Model):
         ]
 
     def get_random_input_values(self):
+        def _get_neg_ints(num):
+            return [random.randint(-100, 0) for _ in range(num)]
+
+        def _get_pos_ints(num):
+            return [random.randint(0, 100) for _ in range(num)]
+
+        def _get_ints(num):
+            num_pos = int(num / 2)
+            num_neg = int(num / 2)
+
+            if num % 2 != 0:
+                increment_neg = random.randint(0, 1)
+                if increment_neg:
+                    num_neg += 1
+                else:
+                    num_pos += 1
+
+            assert num_pos + num_neg == num, f'{num_pos}, {num_neg}, {num}'
+            nums = _get_pos_ints(num_pos) + _get_neg_ints(num_neg)
+            random.shuffle(nums)
+            return nums
+
         if self.inputs == self.INPUT_TYPES.NONE:
             return []
         elif self.inputs == self.INPUT_TYPES.INTEGER:
-            return [random.randint(-100, 100) for _ in range(self.num_inputs)]
+            return _get_ints(self.num_inputs)
         elif self.inputs == self.INPUT_TYPES.POSITIVE_INTEGER:
-            return [random.randint(0, 100) for _ in range(self.num_inputs)]
+            return _get_pos_ints(self.num_inputs)
         elif self.inputs == self.INPUT_TYPES.NEGATIVE_INTEGER:
-            return [random.randint(-100, 0) for _ in range(self.num_inputs)]
+            return _get_neg_ints(self.num_inputs)
         elif self.inputs == self.INPUT_TYPES.LIST_INTEGER:
             return [
-                [random.randint(-100, 100) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+                _get_ints(self.list_input_site) for _ in range(self.num_inputs)
             ]
         elif self.inputs == self.INPUT_TYPES.LIST_POSITIVE_INTEGER:
             return [
-                [random.randint(0, 100) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+                _get_pos_ints(self.list_input_site) for _ in range(self.num_inputs)
             ]
         elif self.inputs == self.INPUT_TYPES.LIST_NEGATIVE_INTEGER:
             return [
-                [random.randint(-100, 0) for _ in range(self.list_input_site)] for _ in range(self.num_inputs)
+                _get_neg_ints(self.list_input_site) for _ in range(self.num_inputs)
             ]
 
 
