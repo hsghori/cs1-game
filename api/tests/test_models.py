@@ -35,6 +35,37 @@ class TestGameLevel(TestCase):
             else:
                 assert len(game.get_random_input_values()) == num_inputs
 
+    def test_integer_input(self):
+        num_inputs = 5
+        game = models.GameLevelModel.objects.create(
+            external_id=f'fake_10',
+            title='fake',
+            description='fake',
+            module_id=self.module_1.id,
+            level_number=0,
+            status=models.GameLevelModel.STATUS.ACTIVE,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=num_inputs,
+            prompt='',
+            blocks='',
+        )
+        assert len(game.get_random_input_values()) == num_inputs
+
+        num_inputs = 4
+        game = models.GameLevelModel.objects.create(
+            external_id=f'fake_11',
+            title='fake',
+            description='fake',
+            module_id=self.module_1.id,
+            level_number=1,
+            status=models.GameLevelModel.STATUS.ACTIVE,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=num_inputs,
+            prompt='',
+            blocks='',
+        )
+        assert len(game.get_random_input_values()) == num_inputs
+
 
 class TestUserGameModule(TestCase):
 

@@ -49,8 +49,8 @@ class TestCheckGameLevelViewSet(TestCase):
     def test_post_game_passed(self, mock_solutions):
         url = f'/api/check-game/{self.user_game_level_id}/'
         data = {
-            'inputs': [],
-            'outputs': ['Hello world!']
+            'inputs': [[]],
+            'outputs': [['Hello world!']]
         }
         user_level = models.UserGameLevelModel.objects.get(id=self.user_game_level_id)
         next_user_level = models.UserGameLevelModel.objects.get(user_id=self.user.id, game_level__id=self.game_12.id)
@@ -73,8 +73,8 @@ class TestCheckGameLevelViewSet(TestCase):
     def test_post_game_not_passed(self, mock_solutions):
         url = f'/api/check-game/{self.user_game_level_id}/'
         data = {
-            'inputs': [],
-            'outputs': ['incorrect']
+            'inputs': [[]],
+            'outputs': [['incorrect']]
         }
         next_user_level = models.UserGameLevelModel.objects.get(user_id=self.user.id, game_level__id=self.game_12.id)
         assert next_user_level.is_locked
@@ -103,13 +103,25 @@ class TestCheckGameLevelViewSet(TestCase):
 
     def test_bad_request(self):
         url = f'/api/check-game/{self.user_game_level_id}/'
-        data = {'outputs': []}
+        data = {'outputs': [[]]}
         response = self.client.post(
             url,
             data=json.dumps(data),
             content_type='application/json')
         assert response.status_code == 400
         assert response.data == {'inputs': ['This field is required.']}
+
+        data = {
+            'inputs': [['1'], ['2']],
+            'outputs': [['out']]
+        }
+        response = self.client.post(
+            url,
+            data=json.dumps(data),
+            content_type='application/json',
+        )
+        assert response.status_code == 400
+        assert response.data == {'non_field_errors': ['There must be the same number of inputs as outputs.']}
 
         response = self.client.post(
             url,

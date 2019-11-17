@@ -23,12 +23,14 @@
             class="workspace"
             data-id="{{ object.id }}"
             data-blocks="{{ object.game_level.blocks }}"
-            data-inputs="{{ object.game_level.get_random_input_values }}"
+            data-inputs1="{{ object.game_level.get_random_input_values }}"
+            data-inputs2="{{ object.game_level.get_random_input_values }}"
+            data-inputs3="{{ object.game_level.get_random_input_values }}"
             style="height: 480px;">
         </div>
         <div class="console">
             <div class="input-console">
-                <strong>Inputs:</strong>
+                <strong>Example Inputs:</strong>
                 <div id="inputs"></div>
             </div>
             <div class="output-console">

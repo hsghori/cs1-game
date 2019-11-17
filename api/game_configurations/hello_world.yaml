@@ -37,11 +37,14 @@ games:
       <br>
       Yow now have access to three new blocks
       <ul>
-        <li>The <strong>input</strong> block takes the next value from the input stream.</li>
+        <li>The <strong>input</strong> block takes the next value from the input.</li>
         <li>The <strong>number</strong> block gives you access to constant integers</li>
         <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers</li>
       </ul>
       Given these blocks, output the sum of the two provided input values.
+      <br>
+      <strong>Your code will be run on other input values so make sure you use the provided blocks and arithmetic operators
+      instead of just outputting the results yourself</strong>
     blocks:
       - math_arithmetic
       - math_number
@@ -99,7 +102,6 @@ games:
     blocks:
       - variable
       - math_arithmetic
-      - math_single
       - math_number
       - input
       - output
