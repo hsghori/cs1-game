@@ -89,7 +89,7 @@ games:
       - math_arithmetic
   - external_id: and_or
     title: AND versus OR
-    description: what's difference between <strong>and</strong> vs. <strong>or</strong>
+    description: what's difference between AND vs. OR
     status: active
     level_number: 4
     inputs: int
