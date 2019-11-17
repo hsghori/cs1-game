@@ -64,7 +64,20 @@ def _if_else_if_else(inputs=None):
         return ['No Answer']
 
 def _and_or(inputs=None):
-    return []
+    a = inputs[0]
+    b = inputs[1]
+    c = inputs[2]
+    d = inputs[3]
+    lst = []
+    if(a > b and c > d):
+        lst.append('Both are true')
+    else:
+        lst.append('Both are NOT true')
+    if(a > b or c > d):
+        lst.append('One is true')
+    else:
+        lst.append('Neither is true')
+    return lst
 
 SOLUTIONS = {
     'intro': _intro,

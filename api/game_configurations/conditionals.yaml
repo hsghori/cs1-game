@@ -95,13 +95,16 @@ games:
     inputs: int
     num_inputs: 4
     prompt: >
-      What's and or practice.
+      You can practice logic operator (AND / OR) with if-else conditional block.
       <br>
-      Yow will be given three integers (a, b, c, d)
+      Yow will be given four integers (a, b, c, d), and need to print out corresponding sentences according to the instruction
       <ul>
         <li>The <strong>Inputs</strong> will give you four integers randomly generated.</li>
+        <li>You might want to use the second condition block from the category <strong>condition (if-else) </strong> </li><br>
         <li>Instruction</li>
-        <ol> placeholder: <strong>and / or</strong>  </ol>
+        <ol> given four integers (a, b, c, d), compare each pair of numbers (1) a > b  (2) c > b  </ol>
+        <ol> if both (1) AND (2) are true, print 'Both are true', or print 'Both are NOT true'  </ol>
+        <ol> if either (1) OR (2) are true, print 'One is true', or print 'Neither is true'  </ol>
       </ul>
     blocks:
       - text
