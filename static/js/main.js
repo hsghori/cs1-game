@@ -10,20 +10,21 @@ const { initBlocks } = require('./blockly_blocks');
 const getToolbox = () => {
 	const blocks = document.getElementById('app').dataset.blocks.split(', ');
 	const variableIdx = blocks.findIndex((el) => el === 'variable');
-	const conditonIdx = blocks.findIndex((el) => el === 'condition');
+	const conditionIdx = blocks.findIndex((el) => el === 'condition');
 	let extraCategories = '';
+
+	if (conditionIdx >= 0) {
+		blocks.splice(conditionIdx, 1);
+		extraCategories += `<category name="Condition (if-else)" colour="#a55b80">
+		<block type="controls_if"></block>
+		<block type="controls_if"><mutation else="1"></mutation></block>
+		<block type="controls_if"><mutation elseif="1" else="1"></mutation></block>
+		</category>
+		`;
+	}
 	if (variableIdx >= 0) {
 		blocks.splice(variableIdx, 1);
-		extraCategories = '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';
-	}
-	let ifCategories = '';
-	if (conditonIdx >= 0) {
-		blocks.splice(conditonIdx, 1);
-		ifCategories = '<category name="Condition (if-else)" colour="#a55b80">';
-		ifCategories += '<block type="controls_if"></block>';
-		ifCategories += '<block type="controls_if"><mutation else="1"></mutation></block>';
-		ifCategories += '<block type="controls_if"><mutation elseif="1" else="1"></mutation></block>';
-		ifCategories += '</category>';
+		extraCategories += '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';
 	}
 
 	const standardBlocks = blocks
@@ -36,15 +37,6 @@ const getToolbox = () => {
 					${standardBlocks}
 				</category>
 				${extraCategories}
-			</xml>
-		`;
-	} else if(ifCategories) {
-		return `
-			<xml id="toolbox">
-				<category name="Basic Operations">
-					${standardBlocks}
-				</category>
-				${ifCategories}
 			</xml>
 		`;
 	} else {

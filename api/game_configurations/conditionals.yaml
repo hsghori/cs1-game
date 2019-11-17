@@ -8,51 +8,48 @@ games:
     title: Basic if statements
     description: Write some basic if statements
     status: active
-    prompt: placebolder
     level_number: 0
     inputs: int
-    num_inputs: 2
+    num_inputs: 3
     prompt: >
-      You can practice basic (if) condition statement with basic blocks.
+      You can practice (if) condition statement with basic blocks.
       <br>
-      Yow will be given two integers (a, b), print either 'greater' or 'less' based on if condition
+      Yow will be given three integers (a, b, c), print only positive integers using multiple <strong>if</strong> conditions.
       <ul>
-        <li>The <strong>Inputs</strong> will give you two integers randomly generated.</li>
+        <li>The <strong>Inputs</strong> will give you three random integers (can be positive or negative)</li>
         <li>You need to use one of condition blocks from the category <strong>condition (if-else) </strong> </li>
         <li>Instruction</li>
         <ol>The <strong>logic_compare</strong> block can be plugged into input of <strong>if</strong></ol>
-        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> or <strong>else</strong></ol>
-        <ol>The <strong>text</strong> block can be plugged into input of the <strong>output</strong></ol>
-        <ol>You need to put 'greater' in the <strong>do</strong> & 'less' in the <strong>else</strong> </ol>
+        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> </ol>
+        <ol>The <strong>number</strong> blocks can be plugged into input of the <strong>output</strong> and <strong>logic_compare</strong></ol>
+        <ol> Tips: You might want to right-click on <strong>if</strong> block and choose <strong>Duplicate</strong>, and then put them together</ol>
       </ul>
     blocks:
       - input
       - output
       - condition
-      - text
-      - math_number
       - logic_compare
+      - math_number
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
-    prompt: placebolder
     status: active
     level_number: 1
     inputs: int
-    num_inputs: 2
+    num_inputs: 1
     prompt: >
-      You can practice - printing boolean value [True/False] based on if-condition.
+      You can make absolute function with <strong>if-else</strong> condition.
       <br>
-      Yow will be given two integers (a, b), print True/False based on <strong>if</strong> condition
+      Yow will be given one integer (a), print the absolute value. for example, print 5 if -5, print 6 if 6.
       <ul>
-        <li>The <strong>Inputs</strong> will give you two integers randomly generated.</li>
+        <li>The <strong>Inputs</strong> will give you one random integer (can be positive or negative) </li>
         <li>You need to use one of condition blocks from the category <strong>condition (if-else) </strong> </li>
         <li>Instruction</li>
         <ol>The <strong>logic_compare</strong> can be plugged in to input of <strong>if</strong></ol>
         <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> or <strong>else</strong></ol>
-        <ol>The <strong>logic_boolean</strong> block can be plugged into input of the <strong>output</strong></ol>
-        <ol>Try to change the value of boolean according to <strong>if</strong> condition</ol>
-        <ol>You need to configure <strong>logic_compare</strong> to make a proper if condition </ol>
+        <ol>The <strong>math_arithmetic</strong> block can be plugged into input of the <strong>output</strong></ol>
+        <ol>The <strong>number</strong> block can be plugged into input of the <strong>math_arithmetic / logic_compare</strong></ol>
+        <ol>Put a proper value in <strong>number</strong> blocks and change the operators accordingly</ol>
       </ul>
     blocks:
       - input
@@ -65,7 +62,6 @@ games:
   - external_id: if_else_if_else
     title: One more time now
     description: Else if
-    prompt: placebolder
     status: active
     level_number: 2
     inputs: int
@@ -91,3 +87,29 @@ games:
       - logic_compare
       - math_number
       - math_arithmetic
+  - external_id: and_or
+    title: AND versus OR
+    description: what's difference between <strong>and</strong> vs. <strong>or</strong>
+    status: active
+    level_number: 4
+    inputs: int
+    num_inputs: 4
+    prompt: >
+      What's and or practice.
+      <br>
+      Yow will be given three integers (a, b, c, d)
+      <ul>
+        <li>The <strong>Inputs</strong> will give you four integers randomly generated.</li>
+        <li>Instruction</li>
+        <ol> placeholder: <strong>and / or</strong>  </ol>
+      </ul>
+    blocks:
+      - text
+      - input
+      - output
+      - condition
+      - logic_compare
+      - math_number
+      - math_arithmetic
+      - logic_operation
+
