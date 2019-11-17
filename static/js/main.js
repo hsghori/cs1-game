@@ -10,11 +10,23 @@ const { initBlocks } = require('./blockly_blocks');
 const getToolbox = () => {
 	const blocks = document.getElementById('app').dataset.blocks.split(', ');
 	const variableIdx = blocks.findIndex((el) => el === 'variable');
+	const conditionIdx = blocks.findIndex((el) => el === 'condition');
 	let extraCategories = '';
+
+	if (conditionIdx >= 0) {
+		blocks.splice(conditionIdx, 1);
+		extraCategories += `<category name="Condition (if-else)" colour="#a55b80">
+		<block type="controls_if"></block>
+		<block type="controls_if"><mutation else="1"></mutation></block>
+		<block type="controls_if"><mutation elseif="1" else="1"></mutation></block>
+		</category>
+		`;
+	}
 	if (variableIdx >= 0) {
 		blocks.splice(variableIdx, 1);
-		extraCategories = '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';
+		extraCategories += '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';
 	}
+
 	const standardBlocks = blocks
 		.map((block) => `<block type="${block}"></block>`)
 		.reduce((prev, curr, idx) => prev + '\n' +  curr, '');
@@ -36,6 +48,20 @@ const getToolbox = () => {
 	}
 };
 
+const workspaceOptions = {
+	toolbox: getToolbox(),
+	collapse: false,
+	comments: false,
+	disable: false,
+	maxBlocks: Infinity,
+	trashcan: true,
+	horizontalLayout: false,
+	toolboxPosition: 'start',
+	css: true,
+	media: 'https://blockly-demo.appspot.com/static/media/',
+	sounds: true,
+	oneBasedIndex: true
+};
 
 const setInput = () => {
 	const inputArr = JSON.parse(document.getElementById('app').dataset.inputs1);
@@ -106,7 +132,7 @@ const runCode = (code, inputArr, showOutput = false) => {
 
 $('document').ready(() => {
 	initBlocks();
-	const workspace = Blockly.inject('app', {toolbox: getToolbox()});
+	const workspace = Blockly.inject('app', workspaceOptions);
 
 	// keep the category open after placing a block
 	workspace.toolbox_.flyout_.autoClose = false;
