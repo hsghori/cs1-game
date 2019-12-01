@@ -113,7 +113,7 @@ games:
     num_inputs: 1
     prompt: >
       Given an <strong>addition</strong> block and some variable blocks, can you
-      multiply the input value by 8.
+      multiply the input value by 8?
       <br>
       Hint: There is a way to do this in only three additions instead of eight.
     status: active
