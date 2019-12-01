@@ -1,6 +1,7 @@
 all:
 	make python_install
 	make npm_install
+	make build_static
 	make build_game_configs
 	make make_migrations
 	make migrate
@@ -34,7 +35,7 @@ build_static:
 	@npm run build:css
 
 python_install:
-	pip install -r requirements.txt
+	@pip install -r requirements.txt
 
 npm_install:
 	@npm ci

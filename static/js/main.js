@@ -133,9 +133,6 @@ const runCode = (code, inputArr, showOutput = false) => {
 $('document').ready(() => {
 	initBlocks();
 	const workspace = Blockly.inject('app', workspaceOptions);
-
-	// keep the category open after placing a block
-	workspace.toolbox_.flyout_.autoClose = false;
 	const gamePk = document.getElementById('app').dataset.id;
 
 	const inputs = [

@@ -7,6 +7,18 @@ from api import models
 def get_status(status):
     return 'A' if status == 'active' else 'I'
 
+SEEN_MODULES = []
+SEEN_GAMES = []
+
+for file in glob.glob('./api/game_configurations/*.yaml'):
+    with open(file, 'r') as f:
+        module_config = yaml.load(f.read(), Loader=yaml.FullLoader)
+        SEEN_MODULES.append(module_config['external_id'])
+        for game_config in module_config['games']:
+            SEEN_GAMES.append(game_config['external_id'])
+
+models.GameLevelModel.objects.exclude(external_id__in=SEEN_GAMES).delete()
+models.GameModuleModel.objects.exclude(external_id__in=SEEN_MODULES).delete()
 
 for file in glob.glob('./api/game_configurations/*.yaml'):
     print(f'Compiling file: {file}')
