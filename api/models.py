@@ -4,10 +4,22 @@ from model_utils import Choices
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from django.utils.timezone import make_aware
+from pinax.badges.base import Badge, BadgeAwarded
+from pinax.badges.registry import badges
+from pinax.badges.base import BadgeDetail
 
 class NoMoreEntitiesException(Exception):
     pass
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    points = models.IntegerField(default=0)
+
+    def award_points(self, points):
+        self.points += points
+        self.save()
 
 
 class GameModuleModel(models.Model):
@@ -192,6 +204,8 @@ class UserGameLevelModel(models.Model):
         if self.status == self.STATUS.COMPLETE:
             return
 
+        self.user.profile.award_points(1)
+        badges.possibly_award_badge("points_awarded", user=self.user)
         self.status = self.STATUS.COMPLETE
         self.save()
         try:
@@ -234,6 +248,35 @@ class UserGameLevelModel(models.Model):
         return first_game.id
 
 
+class PointsBadge(Badge):
+    slug = "points"
+    levels = [
+        BadgeDetail(name='Bronze', description='Awarded for completing at least 1 level.'),
+        BadgeDetail(name='Sliver', description='Awarded for completing more than 5 levels.'),
+        BadgeDetail(name='Gold', description='Awarded for completing more than 15 levels.'),
+        BadgeDetail(name='Silicon', description='Awarded for completing more than 20 levels.')
+    ]
+    events = [
+        "points_awarded",
+    ]
+    multiple = False
+
+    def award(self, **state):
+        user = state["user"]
+        points = user.profile.points
+        if points > 20:
+            return BadgeAwarded(level=4)
+        elif points > 15:
+            return BadgeAwarded(level=3)
+        elif points > 5:
+            return BadgeAwarded(level=2)
+        elif points > 0:
+            return BadgeAwarded(level=1)
+
+
+badges.register(PointsBadge)
+
+
 @receiver(post_save, sender=User)
 def create_user_game_data(sender, instance, created, **kwargs):
     """
@@ -242,6 +285,10 @@ def create_user_game_data(sender, instance, created, **kwargs):
     """
     if not created:
         return
+
+    Profile.objects.create(
+        user=instance
+    )
 
     for module in GameModuleModel.objects.all():
         user_module = UserGameModuleModel.objects.create(

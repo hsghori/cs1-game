@@ -2,7 +2,7 @@ import random
 from django.test import TestCase
 from django.contrib.auth.models import User
 from api import models
-
+from pinax.badges.models import BadgeAward
 
 class TestGameLevel(TestCase):
 
@@ -227,3 +227,79 @@ class TestUserGameModule(TestCase):
         ).first()
         assert next_game.game_level.id == game_13.id
         assert next_game.status == models.UserGameLevelModel.STATUS.INCOMPLETE
+
+
+class TestBadges(TestCase):
+
+    def setUp(self):
+        self.module_1 = models.GameModuleModel.objects.create(
+            external_id='fake_1',
+            title='fake_1',
+            description='fake_1',
+            module_number=0,
+            status=models.GameModuleModel.STATUS.ACTIVE,
+        )
+        for i in range(25):
+            models.GameLevelModel.objects.create(
+                external_id=f'fake_1{i}',
+                title=f'fake_1{i}',
+                description=f'fake_1{i}',
+                module=self.module_1,
+                level_number=i,
+                inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+                num_inputs=5,
+                prompt='',
+                blocks='',
+                status='A'
+            )
+        self.user = User.objects.create_user(
+            username='test',
+            password='smoothunicorn'
+        )
+
+    def test_points_zero_on_init(self):
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 0
+
+    def test_points_awarded(self):
+        game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=0)
+        game.mark_complete()
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 1
+
+    def test_badges_awarded(self):
+        game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=0)
+        game.mark_complete()
+        badges = BadgeAward.objects.filter(user=self.user)
+        assert len(badges) == 1
+        assert badges[0].name == 'Bronze'
+        assert badges[0].slug == 'points'
+
+    def test_cant_award_badge_twice(self):
+        for i in range(3):
+            game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=i)
+            game.mark_complete()
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 3
+        badges = BadgeAward.objects.filter(user=self.user)
+        assert len(badges) == 1
+        assert badges[0].name == 'Bronze'
+        assert badges[0].slug == 'points'
+
+    def test_award_next_badge(self):
+        for i in range(6):
+            game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=i)
+            game.mark_complete()
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 6
+        badges = BadgeAward.objects.filter(user=self.user)
+        assert len(badges) == 2
+
+    def test_award_all_badges(self):
+        for i in range(21):
+            game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=i)
+            game.mark_complete()
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 21
+        badges = BadgeAward.objects.filter(user=self.user)
+        assert len(badges) == 4

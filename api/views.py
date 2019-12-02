@@ -5,9 +5,8 @@ from rest_framework.permissions import IsAuthenticated, BasePermission
 from api import models
 from solution.solution import SOLUTIONS
 from api.serializers import CheckGameInputSerializer
+from pinax.badges.models import BadgeAward
 
-from pinax.badges.registry import badges
-from pinax.points.models import award_points
 
 class IsOwnProfile(IsAuthenticated):
 
@@ -39,12 +38,10 @@ class CheckGameLevelViewSet(ViewSet):
                 break
         else:  # all inputs have passed
             try:
+                current_badges = BadgeAward.objects.filter(user=request.user)
                 user_game.mark_complete()
                 next_game = user_game.next_game
-                
-                # Add a point to the user
-                award_points(request.user, 1)
-                badges.possibly_award_badge("points_awarded", user=request.user)
+                new_badges = BadgeAward.objects.filter(user=request.user)
             except models.NoMoreEntitiesException:
                 next_game = None
             return Response({

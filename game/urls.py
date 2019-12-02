@@ -8,7 +8,6 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^', include('front.urls')),
     url(r'^api/', include('api.urls')),
-    url(r'^badges/', include('pinax.badges.urls', namespace='pinax_badges')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
