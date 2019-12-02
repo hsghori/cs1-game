@@ -38,18 +38,25 @@ class CheckGameLevelViewSet(ViewSet):
                 break
         else:  # all inputs have passed
             try:
-                current_badges = BadgeAward.objects.filter(user=request.user)
+                current_badges = set(BadgeAward.objects.filter(user=request.user))
                 user_game.mark_complete()
                 next_game = user_game.next_game
-                new_badges = BadgeAward.objects.filter(user=request.user)
+                temp_badges = BadgeAward.objects.filter(user=request.user)
+                new_badges = [badge for badge in temp_badges if badge not in current_badges]
+                if new_badges:
+                    badges_awarded = [{'slug': badge.slug, 'name': badge.name} for badge in new_badges]
+                else:
+                    badges_awarded = []
             except models.NoMoreEntitiesException:
                 next_game = None
+                badges_awarded = []
             return Response({
                 'passed': True,
-                'next_game': next_game
+                'next_game': next_game,
+                'badges_awarded': badges_awarded,
             })
 
-        return Response({'passed': False, 'next_game': None})
+        return Response({'passed': False, 'next_game': None, 'badges_awarded': []})
 
     @staticmethod
     def get_solution_function(user_game):

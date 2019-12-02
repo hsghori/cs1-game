@@ -9,6 +9,7 @@ from pinax.badges.base import Badge, BadgeAwarded
 from pinax.badges.registry import badges
 from pinax.badges.base import BadgeDetail
 
+
 class NoMoreEntitiesException(Exception):
     pass
 
@@ -206,6 +207,7 @@ class UserGameLevelModel(models.Model):
 
         self.user.profile.award_points(1)
         badges.possibly_award_badge("points_awarded", user=self.user)
+
         self.status = self.STATUS.COMPLETE
         self.save()
         try:
@@ -252,9 +254,9 @@ class PointsBadge(Badge):
     slug = "points"
     levels = [
         BadgeDetail(name='Bronze', description='Awarded for completing at least 1 level.'),
-        BadgeDetail(name='Sliver', description='Awarded for completing more than 5 levels.'),
+        BadgeDetail(name='Silver', description='Awarded for completing more than 5 levels.'),
         BadgeDetail(name='Gold', description='Awarded for completing more than 15 levels.'),
-        BadgeDetail(name='Silicon', description='Awarded for completing more than 20 levels.')
+        BadgeDetail(name='Silicon', description='Awarded for completing more than 20 levels.'),
     ]
     events = [
         "points_awarded",

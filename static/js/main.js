@@ -7,6 +7,11 @@ const modalInit = require('styledot/modal-init');
 const { initBlocks } = require('./blockly_blocks');
 
 
+String.prototype.toProperCase = function() {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
+
 const getToolbox = () => {
 	const blocks = document.getElementById('app').dataset.blocks.split(', ');
 	const variableIdx = blocks.findIndex((el) => el === 'variable');
@@ -79,12 +84,30 @@ const checkGame = (gamePk, inputs, outputs) => {
 		{inputs, outputs},
 		{headers: {'X-CSRFToken': csrftoken}}
 	).then((response) => {
-		const { passed, next_game: nextGamePk } = response.data;
+		const { passed, next_game: nextGamePk, badges_awarded: badges } = response.data;
 		if (passed) {
 			const nextLink = nextGamePk ? `/game/${nextGamePk}/` : '/';
+			let badgesStr = '';
+			if (badges.length > 0) {
+				badgesStr = `You\'ve earned the following badge(s):<br>\n<ul>`;
+				badges.forEach((badge) => {
+					badgesStr += `<li style="display: flex; flex-direction: row; align-items: center; ">
+						<div style="margin-right: 8px;">${badge.slug.toProperCase()} - ${badge.name}</div>
+						<img src="/static/img/shield.svg" style="height: 24px;"/>
+					</li>`;
+				});
+				badgesStr += '</ul>';
+				badgesStr += `
+					<div style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 8px; margin-bottom: 8px">
+						<a class="sd-button" href="/badges/">View awards</a>
+					</div>
+				`;
+			}
+
 			const modalContents = `
 				<h3>Good work!</h3>
 				<p>Your solution passed!</p>
+				<div>${badgesStr}</div>
 				<div style="display: flex; flex-direction: row; justify-content: space-around">
 					<a class="sd-button" href="${nextLink}">Next</a>
 				</div>
@@ -110,6 +133,7 @@ const checkGame = (gamePk, inputs, outputs) => {
 			<h3>Whoops</h3>
 			<p>An error occurred.</p>
 			<p>Please try again later.</p>
+			<p>${err}</p>
 		`;
 		modalInit.default({
 			contents: modalContents,

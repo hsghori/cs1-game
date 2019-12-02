@@ -286,7 +286,7 @@ class TestBadges(TestCase):
         assert badges[0].name == 'Bronze'
         assert badges[0].slug == 'points'
 
-    def test_award_next_badge(self):
+    def test_award_two_badges(self):
         for i in range(6):
             game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=i)
             game.mark_complete()
@@ -294,6 +294,17 @@ class TestBadges(TestCase):
         assert profile.points == 6
         badges = BadgeAward.objects.filter(user=self.user)
         assert len(badges) == 2
+        assert {badge.name for badge in badges} == {'Bronze', 'Silver'}
+
+    def test_award_three(self):
+        for i in range(16):
+            game = models.UserGameLevelModel.objects.get(user=self.user, game_level__level_number=i)
+            game.mark_complete()
+        profile = models.Profile.objects.get(id=self.user.profile.id)
+        assert profile.points == 16
+        badges = BadgeAward.objects.filter(user=self.user)
+        assert len(badges) == 3
+        assert {badge.name for badge in badges} == {'Bronze', 'Silver', 'Gold'}
 
     def test_award_all_badges(self):
         for i in range(21):
@@ -303,3 +314,5 @@ class TestBadges(TestCase):
         assert profile.points == 21
         badges = BadgeAward.objects.filter(user=self.user)
         assert len(badges) == 4
+        assert {badge.name for badge in badges} == {'Bronze', 'Silver', 'Gold', 'Silicon'}
+

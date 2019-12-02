@@ -5,20 +5,16 @@
 {% block content %}
     <div class="sd-card sd-elevation-2 game-module-card">
         <div class="module-header">
-            <a
-                class="back-button"
-                href="{% url 'index' %}"
-                title="Back to homepage"
-            >
-                <div>&#x25c0;</div>
-            </a>
-            <h1>
+            <h1 class="header-text">
                 {{ object.game_module.title }}
             </h1>
         </div>
-        <p>
+        <p class="header-text">
             {{ object.game_module.description }}
         </p>
+        <div class="home-button-container">
+            <a class="sd-button-small-yes" href="/">Home</a>
+        </div>
     </div>
     {% for game in object.user_games.all %}
         {% if game.is_locked %}
