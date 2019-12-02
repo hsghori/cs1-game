@@ -12,24 +12,25 @@ games:
     inputs: int
     num_inputs: 3
     prompt: >
-      You can practice (if) condition statement with basic blocks.
+      So far we've been able to transform input into output in a very set and structured way. But what if we want to perform
+      different tasks based on the value of our input?
       <br>
-      Yow will be given three integers (a, b, c), print only positive integers using multiple <strong>if</strong> conditions.
+      You have access to two new blocks that will help you perform these "conditional operations".
       <ul>
-        <li>The <strong>Inputs</strong> will give you three random integers (can be positive or negative)</li>
-        <li>You need to use one of condition blocks from the category <strong>condition (if-else) </strong> </li>
-        <li>Instruction</li>
-        <ol>The <strong>logic_compare</strong> block can be plugged into input of <strong>if</strong></ol>
-        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> </ol>
-        <ol>The <strong>number</strong> blocks can be plugged into input of the <strong>output</strong> and <strong>logic_compare</strong></ol>
-        <ol> Tips: You might want to right-click on <strong>if</strong> block and choose <strong>Duplicate</strong>, and then put them together</ol>
+        <li>The <strong>Condition</strong> category contains a <strong>if</strong> block. This block contains two slots - the first
+            slot takes a condition block which evaluates to True if the condition is True and False if not. The second slot
+            takes any series of blocks. The blocks in the second slot are executed if the condition in the first block is True</li>
+        <li>The <strong>Comparison</strong> block allows you to compare two numbers using a series of logical operations (<, >, =, etc)</li>
       </ul>
+      <br>
+      Given three input integers output only the positive integers.
     blocks:
       - input
       - output
-      - condition
       - logic_compare
       - math_number
+      - condition
+      - variable
   - external_id: else
     title: What else is there?
     description: Throwing else into the mix
@@ -55,6 +56,7 @@ games:
       - input
       - output
       - condition
+      - variable
       - math_number
       - math_arithmetic
       - logic_compare
@@ -84,6 +86,7 @@ games:
       - input
       - output
       - condition
+      - variable
       - logic_compare
       - math_number
       - math_arithmetic
@@ -91,7 +94,7 @@ games:
     title: AND versus OR
     description: what's difference between AND vs. OR
     status: active
-    level_number: 4
+    level_number: 3
     inputs: int
     num_inputs: 4
     prompt: >
@@ -111,6 +114,7 @@ games:
       - input
       - output
       - condition
+      - variable
       - logic_compare
       - math_number
       - math_arithmetic
