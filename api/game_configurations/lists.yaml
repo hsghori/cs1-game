@@ -1,0 +1,137 @@
+external_id: lists
+title: Lists & Others
+description: Learn a collection of data and others
+status: active
+module_number: 3
+games:
+  - external_id: list_basic
+    title: Basic list
+    description: Write some basic list
+    status: active
+    level_number: 0
+    inputs: list_pos_int
+    num_inputs: 4
+    list_input_site: 5
+    prompt: >
+      You can practice basic concept of list<br>
+      <cite> In computer science, an array data structure, or simply an <strong>array</strong> or <strong>list</strong>, is a data structure consisting of a collection of elements (values or variables), 
+      each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.(Wikipedia) </cite>
+      <br> <br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> Yow will be given a set of integers. Print out sum of integers and finish when flows meets negative integer<br>
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - math_number
+      - math_arithmetic
+      - logic_compare
+      - logic_boolean
+      - controls_forEach
+      - lists_create_with
+      - controls_flow_statements
+  - external_id: list_index
+    title: List with index
+    description: Practice list with index
+    status: active
+    level_number: 1
+    inputs: int
+    num_inputs: 2
+    list: 3
+    list_pos_int: 3
+    prompt: >
+      You can practice basic concept of list<br>
+      <cite> In computer science, many data structures (such as list, an associative array, map, symbol table, or dictionary) 
+      are abstract data types composed of a collection of (key, value) pairs, 
+      such that each possible key appears at most once in the collection. (Wikipedia) </cite>
+      <br>
+      It is very important to understand this concept of (key,value) when you're programming 
+      because you need to frequently search values based on the key or index  <br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> You will be given a set of integers. You need to find out the value of 2nd index</ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - math_number
+      - math_arithmetic
+      - lists_indexOf
+      - lists_create_with
+      - lists_getIndex
+      - lists_setIndex
+  - external_id: list_sort
+    title: Sort Lists
+    description:  get the feel of sorting algorithm
+    status: active
+    level_number: 2
+    inputs: int
+    num_inputs: 2
+    prompt: >
+      <cite> In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. <br>
+      This algorithm is made up of a series of instructions that takes an array as input, 
+      performs specified operations on the array, sometimes called a list, and outputs a sorted array. 
+      Sorting algorithms are often taught early in computer science classes 
+      as they provide a straightforward way to introduce other key computer science topics like Big-O notation.(Wikipedia) </cite>
+      <br><br>
+      However, this game will give you a very basic sense of sorting of numbers 
+      when you use a specific block which already implemented with sorting algorithm.<br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> Yow will be given a set of integers. Print out sorted integers<br>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - math_number
+      - lists_length
+      - lists_isEmpty
+      - lists_create_with
+      - lists_sort
+  - external_id: fizz_buzz
+    title: FizzBuzz Game
+    description: Make a small FizzBuzz game
+    status: active
+    level_number: 3
+    inputs: int
+    num_inputs: 2
+    prompt: >
+      <cite>Fizz buzz is a group word game for children to teach them about division. <br>
+      Players take turns to count incrementally, replacing any number divisible by three with the word "fizz", 
+      and any number divisible by five with the word "buzz". <strong>(Wikipedia) </strong>
+      </cite>
+      <ul>
+        <ol>For example, a typical round of fizz buzz would start as follows: <br>
+        1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, Fizz Buzz, <br>
+        16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, Fizz Buzz, <br>
+        31, 32, Fizz, 34, Buzz, Fizz, ...
+        </ol>
+      </ul>
+      <br>
+      <ul>
+        <li>Instruction</li> 
+        <ol>Yow will be given one positive integer. <br>
+         Make a FizzBuzz game with blocks, which is printing Fizz/Buzz accordingly up to the number<br>
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - controls_for
+      - math_number
+      - logic_compare
+      - math_modulo

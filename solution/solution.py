@@ -79,6 +79,83 @@ def _and_or(inputs=None):
         lst.append('Neither is true')
     return lst
 
+# print numbers from 0 to the integer
+def _for_loops_0(inputs=None):
+    a = inputs[0]
+    lst = []
+    for i in range(a+1):
+        lst.append(i)
+    return lst
+
+# print only even numbers from 0 to the integer
+def _for_if(inputs=None):
+    a = inputs[0]
+    lst = []
+    for i in range(a+1):
+        if (i % 2 == 0):
+            lst.append(i)
+    return lst
+
+# print a sum of integers from 0 to up until the integer
+def _while_loop(inputs=None):
+    a = inputs[0]
+    lst = []
+    sum = 0
+    for i in range(a+1):
+        sum += i
+    lst.append(sum)
+    return lst
+
+# print converted binary values (from decimal) sequentially
+def _while_decimal(inputs=None):
+    decimal = inputs[0]
+    lst = []
+    while decimal > 0:
+        lst.append(decimal % 2)
+        decimal = round(decimal // 2)
+    return lst
+
+# print true / false based on validation if the number is prime
+def _while_prime(inputs=None):
+    num = inputs[0]
+    lst = []
+    prime = True
+    for i in range(2, num):
+        # print('(debug)',num, ' % ', i, ' == ',(num % i))
+        if(num % i) ==0:
+            prime = False
+            break
+    lst.append(prime)
+    return lst
+
+def _list_basic(inputs=None):
+    print('**********  _list_basic    ************')
+    for i in range(len(inputs)):
+        print(i, ':',inputs[i])
+    lst = ['ls']
+    return lst
+
+def _list_index(inputs=None):
+    print('**********  _list_index    ************')
+    for i in range(len(inputs)):
+        print(i, ':',inputs[i])
+    lst = ['ls']
+    return lst
+
+def _list_sort(inputs=None):
+    print('**********  _list_sort    ************')
+    for i in range(len(inputs)):
+        print(i, ':',inputs[i])
+    lst = ['ls']
+    return lst
+
+def _fizz_buzz(inputs=None):
+    print('**********  _fizz_buzz    ************')
+    for i in range(len(inputs)):
+        print(i, ':',inputs[i])
+    lst = ['ls']
+    return lst
+
 SOLUTIONS = {
     'intro': _intro,
     'basic_arithmetic': _basic_arithmetic,
@@ -89,4 +166,14 @@ SOLUTIONS = {
     'else' : _if_else,
     'if_else_if_else' : _if_else_if_else,
     'and_or' : _and_or,
+    'for_loops_0' : _for_loops_0,
+    'for_if' : _for_if,
+    'while_loop' : _while_loop,
+    'while_decimal' : _while_decimal,
+    'while_prime' : _while_prime,
+    'list_basic' : _list_basic,
+    'list_index' : _list_index,
+    'list_sort' : _list_sort,
+    'fizz_buzz' : _fizz_buzz,
+
 }
