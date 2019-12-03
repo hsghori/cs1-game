@@ -97,14 +97,15 @@ games:
       and then wraps around to form two-digit numbers, with each digit being worth ten times more than the last (1, 10, 100, etc.).
       Binary is similar, with each digit being worth two times more than the last. <strong>(howtogeek.com)</strong><br>
       <li>Instruction</li> 
-      Given a positive number between 0 < <strong>P</strong> < 32 <br>
-      Return sequence of binary numbers (i.e. 8 => 1000) <br>
-      Print the binary order from lowest base to high and then print 'end' at the end. Take 8 for example; <br>
-      >>>0 <br>
-      >>>0 <br>
+      You will be given a positive number between 0 < <strong>P</strong> < 100. 
+      Print the binary order from lowest base to highest order. <br>
+      For example, the number 13 can be thought of as (13 = 1x10 &#185; + 3x10 &#8304;). 
+      Similarly the same number 13 with a different base of 2 can also be thought of as "(13 = 1x2 &#179; + 1x2&#178; + 0x2&#185; + 1x2&#8304;) - or the number 1101 in binary.<br>
+      Therefore, it should print like below.<br>
+      >>>1 <br>
       >>>0 <br>
       >>>1 <br>
-      >>>end <br>
+      >>>1 <br>
     blocks:
       - variable
       - text
