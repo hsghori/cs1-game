@@ -128,32 +128,51 @@ def _while_prime(inputs=None):
     lst.append(prime)
     return lst
 
+# print sum of integers inside a list
 def _list_basic(inputs=None):
-    print('**********  _list_basic    ************')
-    for i in range(len(inputs)):
-        print(i, ':',inputs[i])
-    lst = ['ls']
+    a = inputs[0]
+    sum = 0
+    for i in range(len(a)):
+        # print('(debug)', i, ':',a[i])
+        sum += a[i]
+    lst = [sum]
     return lst
 
+# print the index of the maximum integer
 def _list_index(inputs=None):
-    print('**********  _list_index    ************')
-    for i in range(len(inputs)):
-        print(i, ':',inputs[i])
-    lst = ['ls']
+    a = inputs[0]
+    max = -1
+    maxInd = 0
+    for i in range(len(a)):
+        if (a[i] > max) : 
+            max = a[i]
+            maxInd = i
+    lst = [maxInd]
     return lst
 
+# print only even numbers sorted in ascending order
 def _list_sort(inputs=None):
-    print('**********  _list_sort    ************')
-    for i in range(len(inputs)):
-        print(i, ':',inputs[i])
-    lst = ['ls']
+    a = inputs[0]
+    a.sort()
+    lst = []
+    for i in range(len(a)):
+        if (a[i] % 2 == 0) : 
+            lst.append(a[i])
     return lst
 
+# FizzBuzz game
 def _fizz_buzz(inputs=None):
-    print('**********  _fizz_buzz    ************')
-    for i in range(len(inputs)):
-        print(i, ':',inputs[i])
-    lst = ['ls']
+    fizzbuzz = inputs[0]
+    lst = []
+    for i in range(1, fizzbuzz+1):
+        if (i % 15 == 0):
+            lst.append('FizzBuzz')
+        elif (i % 3 ==0):
+            lst.append('Fizz')
+        elif (i % 5 ==0):
+            lst.append('Buzz')
+        else:
+            lst.append(i)
     return lst
 
 SOLUTIONS = {
