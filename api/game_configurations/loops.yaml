@@ -30,7 +30,7 @@ games:
     title: For Loop with If
     description: Select only even numbers
     status: active
-    level_number: 2
+    level_number: 1
     inputs: pos_int
     num_inputs: 1
     prompt: >
@@ -57,7 +57,7 @@ games:
     title: While - advanced for-loop
     description: Print sum of integers from 1 to up until the given integer
     status: active
-    level_number: 3
+    level_number: 2
     inputs: pos_int
     num_inputs: 1
     prompt: >
@@ -87,7 +87,7 @@ games:
     title: While - decimal to binary
     description: Given a passive integer input, print out a specific pattern
     status: active
-    level_number: 4
+    level_number: 3
     inputs: pos_int
     num_inputs: 1
     prompt: >
@@ -123,7 +123,7 @@ games:
     title: While - a prime number
     description: Validate a prime number
     status: active
-    level_number: 5
+    level_number: 4
     inputs: pos_int
     num_inputs: 1
     prompt: >
@@ -154,7 +154,7 @@ games:
     title: FizzBuzz Game
     description: Make a small FizzBuzz game
     status: active
-    level_number: 6
+    level_number: 5
     inputs: pos_int
     num_inputs: 1
     prompt: >
