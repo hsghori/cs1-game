@@ -45,7 +45,7 @@ class GameLevelModel(models.Model):
     blocks = models.TextField(max_length=2000)
     inputs = models.CharField(max_length=128)
     num_inputs = models.IntegerField(default=0)
-    list_input_site = models.IntegerField(default=0)
+    list_input_size = models.IntegerField(default=0)
     module = models.ForeignKey(GameModuleModel, related_name='games', on_delete=models.CASCADE)
     level_number = models.IntegerField()
     status = models.CharField(max_length=1, choices=STATUS)
@@ -88,15 +88,15 @@ class GameLevelModel(models.Model):
             return _get_neg_ints(self.num_inputs)
         elif self.inputs == self.INPUT_TYPES.LIST_INTEGER:
             return [
-                _get_ints(self.list_input_site) for _ in range(self.num_inputs)
+                _get_ints(self.list_input_size) for _ in range(self.num_inputs)
             ]
         elif self.inputs == self.INPUT_TYPES.LIST_POSITIVE_INTEGER:
             return [
-                _get_pos_ints(self.list_input_site) for _ in range(self.num_inputs)
+                _get_pos_ints(self.list_input_size) for _ in range(self.num_inputs)
             ]
         elif self.inputs == self.INPUT_TYPES.LIST_NEGATIVE_INTEGER:
             return [
-                _get_neg_ints(self.list_input_site) for _ in range(self.num_inputs)
+                _get_neg_ints(self.list_input_size) for _ in range(self.num_inputs)
             ]
 
 

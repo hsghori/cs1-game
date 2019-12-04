@@ -1,0 +1,139 @@
+external_id: lists
+title: Lists
+description: Learn a collection of data and others
+status: active
+module_number: 3
+games:
+  - external_id: list_basic
+    title: Basic list
+    description: Write some basic list
+    status: active
+    level_number: 0
+    inputs: list_pos_int
+    num_inputs: 1
+    list_input_size: 5
+    prompt: >
+      You can practice basic concept of list<br>
+      <cite> In computer science, an array data structure, or simply an <strong>array</strong> or <strong>list</strong>, is a data structure consisting of a collection of elements (values or variables), 
+      each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.(Wikipedia) </cite>
+      <br> <br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> Yow will be given a set of integers. Print out sum of integers<br>
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - math_number
+      - math_arithmetic
+      - logic_compare
+      - logic_boolean
+      - controls_forEach
+  - external_id: list_index
+    title: List with index
+    description: Find the index for a maxmum number
+    status: active
+    level_number: 1
+    inputs: list_pos_int
+    num_inputs: 1
+    list_input_size: 5
+    prompt: >
+      You can practice basic concept of list<br>
+      <cite> In computer science, many data structures (such as list, an associative array, map, symbol table, or dictionary) 
+      are abstract data types composed of a collection of (key, value) pairs, 
+      such that each possible key appears at most once in the collection. (Wikipedia) </cite>
+      <br>
+      It is very important to understand this concept of (key,value) when you're programming 
+      because you need to frequently search values based on the key or index  <br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> In most programming languages, index starts with 0 and continue with 1,2,3, .. and so on. </ol>
+        <ol> You will be given a set of integers. Find out the maximum value of integer and return its index. </ol>
+        <ol> For example, you are given [41,19,49,17,85]. In this case 85 is the biggest number, so return 4 for its index</ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - math_arithmetic
+      - logic_compare
+      - controls_if
+      - math_number
+      - math_arithmetic
+      - controls_forEach
+  - external_id: list_sort
+    title: Sort Lists
+    description:  get the feel of sorting algorithm
+    status: active
+    level_number: 2
+    inputs: list_pos_int
+    num_inputs: 1
+    list_input_size: 10
+    prompt: >
+      <cite> In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. <br>
+      This algorithm is made up of a series of instructions that takes an array as input, 
+      performs specified operations on the array, sometimes called a list, and outputs a sorted array. 
+      Sorting algorithms are often taught early in computer science classes 
+      as they provide a straightforward way to introduce other key computer science topics like Big-O notation.(Wikipedia) </cite>
+      <br><br>
+      However, this game will give you a very basic sense of sorting of numbers 
+      when you use a specific block which already implemented with sorting algorithm.<br>
+      <ul>
+        <li>Instruction</li> 
+        <ol> Yow will be given a set of 10 integers. Print out only even numbers which are sorted in an ascending order</ol>
+        <ol> For example, you are given [14,44,46,97,36,84,22,7,24,88]. print [14,22,24,36,44,46,84,88], There are no odd numbers (97,7) in sorted numbers </ol>
+      </ul>
+    blocks:
+      - variable
+      - output
+      - input
+      - controls_forEach
+      - math_arithmetic
+      - logic_compare
+      - math_modulo
+      - controls_if
+      - math_number
+      - lists_sort
+  - external_id: list_compare
+    title: Compare sums of two lists
+    description: Working on it..
+    status: active
+    level_number: 3
+    inputs: list_int
+    num_inputs: 2
+    list_input_size: 5
+    prompt: >
+      <cite>Compare sums of two lists. <br>
+      </cite>
+      <ul>
+        <li>Instruction</li> 
+        <ol>Yow will be given one positive integer. <br>
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - controls_for
+      - math_modulo 
+      - controls_forEach
+      - controls_for # for loop
+      - math_arithmetic
+      - logic_compare
+      - math_number
+      - math_on_list # sum of list
+      - lists_sort
+      - lists_setIndex
+      - lists_getIndex
+      - lists_length
+      - lists_indexOf
+      - lists_repeat
+      - lists_create_with
+      - lists_getSublist
