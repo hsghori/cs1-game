@@ -3,6 +3,8 @@ djangorestframework
 pyyaml
 django-webpack-loader
 django-model-utils
+pinax-points
 psycopg2
 pytest
 pytest-django
+git+https://github.com/pinax/pinax-badges.git

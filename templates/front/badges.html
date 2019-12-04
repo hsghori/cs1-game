@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_class %}index{% endblock %}
+
+{% block content %}
+    {% for badge in object_list %}
+        <div class="sd-card sd-elevation-2 game-module-card">
+            <h3>{{ badge.slug|title }} - {{ badge.name }}</h3>
+            <p>{{ badge.description }}</p>
+            <p>{{ badge.user_has }}</p>
+        </div>
+    {% endfor %}
+    <a class="sd-button-small-yes" href="/">Home</a>
+{% endblock %}

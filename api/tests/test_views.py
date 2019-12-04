@@ -66,6 +66,7 @@ class TestCheckGameLevelViewSet(TestCase):
         next_user_level = models.UserGameLevelModel.objects.get(user_id=self.user.id, game_level__id=self.game_12.id)
         assert response.status_code == 200
         assert response.data['passed']
+        assert response.data['badges_awarded'] == [{'slug': 'points', 'name': 'Bronze'}]
         assert user_level.is_complete
         assert not next_user_level.is_locked
 
@@ -85,6 +86,7 @@ class TestCheckGameLevelViewSet(TestCase):
             content_type='application/json')
         assert response.status_code == 200
         assert not response.data['passed']
+        assert response.data['badges_awarded'] == []
         next_user_level = models.UserGameLevelModel.objects.get(user_id=self.user.id, game_level__id=self.game_12.id)
         assert next_user_level.is_locked
 
