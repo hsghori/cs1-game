@@ -150,3 +150,38 @@ games:
       - controls_flow_statements
       - math_single
       - math_modulo
+  - external_id: fizz_buzz
+    title: FizzBuzz Game
+    description: Make a small FizzBuzz game
+    status: active
+    level_number: 6
+    inputs: pos_int
+    num_inputs: 1
+    prompt: >
+      <cite>Fizz buzz is a group word game for children to teach them about division. <br>
+      Players take turns to count incrementally, replacing any number divisible by three with the word "fizz", 
+      and any number divisible by five with the word "buzz". <strong>(Wikipedia) </strong>
+      </cite>
+      <ul>
+        <ol>For example, a typical round of fizz buzz would start as follows: <br>
+        1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, <br>
+        16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, FizzBuzz, <br>
+        31, 32, Fizz, 34, Buzz, Fizz, ...
+        </ol>
+      </ul>
+      <ul>
+        <li>Instruction</li> 
+        <ol>Yow will be given one positive integer. <br>
+         Make a FizzBuzz game with blocks, which is printing Fizz/Buzz accordingly up to the number<br>
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - text
+      - output
+      - input
+      - controls_if
+      - controls_for
+      - math_number
+      - logic_compare
+      - math_modulo 
