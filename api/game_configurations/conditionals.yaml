@@ -6,7 +6,7 @@ module_number: 1
 games:
   - external_id: basic_if
     title: Basic if statements
-    description: Write some basic if statements
+    description: Learn how to make your computer make decisions
     status: active
     level_number: 0
     inputs: int
@@ -32,26 +32,22 @@ games:
       - condition
       - variable
   - external_id: else
-    title: What else is there?
-    description: Throwing else into the mix
+    title: What else?
+    description: Learn about "else" conditions
     status: active
     level_number: 1
     inputs: int
     num_inputs: 1
     prompt: >
-      You can make absolute function with <strong>if-else</strong> condition.
+      The <strong>if</strong> block only allows us to take one path (if a condition is true). But what if we want to take
+      one path if a condition is true and another path is the condition is false?
       <br>
-      Yow will be given one integer (a), print the absolute value. for example, print 5 if -5, print 6 if 6.
-      <ul>
-        <li>The <strong>Inputs</strong> will give you one random integer (can be positive or negative) </li>
-        <li>You need to use one of condition blocks from the category <strong>condition (if-else) </strong> </li>
-        <li>Instruction</li>
-        <ol>The <strong>logic_compare</strong> can be plugged in to input of <strong>if</strong></ol>
-        <ol>The <strong>output</strong> block can be plugged into input of <strong>do</strong> or <strong>else</strong></ol>
-        <ol>The <strong>math_arithmetic</strong> block can be plugged into input of the <strong>output</strong></ol>
-        <ol>The <strong>number</strong> block can be plugged into input of the <strong>math_arithmetic / logic_compare</strong></ol>
-        <ol>Put a proper value in <strong>number</strong> blocks and change the operators accordingly</ol>
-      </ul>
+      Click on the settings icon in the <strong>if</strong> block to access an <strong>else</strong> block. An <strong>else</strong> block must be attached to
+      an <strong>if</strong> block and any code inside of the <strong>else</strong> block will be executed if the condition
+      of the <strong>if</strong> block is False.
+      <br>
+      Given the if and else blocks, return the absolute value of the input value. The absolute value of a number is
+      the magnitude of the number without regard to its sign.
     blocks:
       - input
       - output
@@ -61,25 +57,30 @@ games:
       - math_arithmetic
       - logic_compare
       - logic_boolean
-  - external_id: if_else_if_else
+  - external_id: else_if
     title: One more time now
-    description: Else if
+    description: Learn about "else if" conditions
     status: active
     level_number: 2
     inputs: int
     num_inputs: 4
     prompt: >
-      You can practice another version of condition (if / else-if / else) based on your assembling blocks.
+      If and else are very powerful, but you may have a whole set of related conditions which each have a unique code path.
+      For example, converting a number grade to a letter grade would require you to output a different answer for five different
+      possible ranges of values.
       <br>
-      Yow will be given four integers (a, b, c, d)
+      Click on the settings icon in the <strong>if</strong> block to access an <strong>else< if/strong> block. An <strong>else if</strong> block must be attached to
+      an <strong>if</strong> block or another <strong>else if</strong block and any code inside of the <strong>else if</strong> block will be executed if the condition
+      of the preceding attached <strong>if</strong> and <strong>else if</strong blocks are false. Any number of <strong>else if</strong>
+      blocks may be attached to an <strong>if</strong> block and an <strong>else</strong> block may be attached to the last
+      <strong>else if</strong> block in the sequence. The <strong>else</strong> block will only be executed if all
+      <strong>if</strong> and <strong>else if</strong> conditions are false.
+      <br>
+      Given four integers (a, b, c, d)
       <ul>
-        <li>The <strong>Inputs</strong> will give you four integers randomly generated.</li>
-        <li>There are five plug-in sockets (if-do-elseif-do-else) in <strong>if-elseif-else</strong> block</li>
-        <li>You might want to use the third condition block from the category <strong>condition (if-else) </strong> </li><br>
-        <li>Instruction</li>
-        <ol>In the <strong>if</strong> condition plugin, compare 1st(a) and 2nd(b) integers if a > b, then print sum(a+b) </ol>
-        <ol>If not, in the second <strong>else-if</strong> condition plugin, compare 3rd(c) and 4th(d) integers if c < d, then print sum(c+d) </ol>
-        <ol>If both conditions are not satisfied, print out 'No Answer'</ol>
+        <li>if a is greater than b then print the sum of a and b </ol>
+        <li>If a is not greater than b and if c < d, then the sum of c and d</li>
+        <li>If both conditions are not satisfied, print out 'No Answer'</li>
       </ul>
     blocks:
       - text
@@ -90,24 +91,72 @@ games:
       - logic_compare
       - math_number
       - math_arithmetic
-  - external_id: and_or
-    title: AND versus OR
-    description: what's difference between AND vs. OR
+  - external_id: more_else_if
+    title: Grading on a curve
+    description: Get some more practice with conditional operators
     status: active
     level_number: 3
+    inputs: pos_int
+    num_inputs: 1
+    prompt: >
+      You are a teacher grading a very hard exam. To be nice to your students you have adjusted the grading scale to make
+      sure they can still get good grades.
+      <ul>
+        <li>A grade between 80 and 100 is an "A"</li>
+        <li>A grade between 65 and 80 is a "B"</li>
+        <li>A grade between 45 and 65 is a "C"</li>
+        <li>A grade between 25 and 45 is a "D"</li>
+        <li>A grade between 0 and 25 is an "F"</li>
+      </ul>
+      If a student is on a boundary they should receive the higher grade (so an 80 is an A, not a B).
+      <br>
+      Given an input value, output the corresponding grade.
+    blocks:
+      - text
+      - input
+      - output
+      - condition
+      - variable
+      - logic_compare
+  - external_id: and_or
+    title: Complex logic
+    description: Learn about some logical operators
+    status: active
+    level_number: 4
     inputs: int
     num_inputs: 4
     prompt: >
-      You can practice logic operator (AND / OR) with if-else conditional block.
+      So far we've worked with very simple conditions. However, we can use "logical operators" to execute if
+      statements based on much more complex conditions.
       <br>
-      Yow will be given four integers (a, b, c, d), and need to print out corresponding sentences according to the instruction
+      You have access to the <strong>logical operator</strong> that will help you perform these "conditional operations".
       <ul>
-        <li>The <strong>Inputs</strong> will give you four integers randomly generated.</li>
-        <li>You might want to use the second condition block from the category <strong>condition (if-else) </strong> </li><br>
-        <li>Instruction</li>
-        <ol> given four integers (a, b, c, d), compare each pair of numbers (1) a > b  (2) c > b  </ol>
-        <ol> if both (1) AND (2) are true, print 'Both are true', or print 'Both are NOT true'  </ol>
-        <ol> if either (1) OR (2) are true, print 'One is true', or print 'Neither is true'  </ol>
+        <li>
+          <strong>AND</strong> - Given two conditions a and b, a AND b is True if and only if both a and b are true.
+          <br>
+          For example, if x = 5, y = 6, and z = 7,
+          <ul>
+            <li>x < y AND y < z would be true</li>
+            <li>y > x AND y < z would be false</li>
+            <li>y > x AND y > z would be false</li>
+          </ul>
+        </li>
+        <li>
+          <strong>OR</strong> - Given two conditions a and b, a OR b is True if either a, b, or both a and b are true.
+          <br>
+          For example, if x = 5, y = 6, and z = 7,
+          <ul>
+            <li>x < y OR y < z would be true</li>
+            <li>y > x OR y < z would be true</li>
+            <li>y > x AND y > z would be false</li>
+          </ul>
+        </li>
+      </ul>
+      <br>
+      Given four integers (a, b, c, d)
+      <ul>
+        <li> if a > b AND c > b is true, print 'Both are true'. If not print 'Both are NOT true'  </ol>
+        <li> if a > b OR c > b is true, print 'One is true'. If not print 'Neither is true'  </ol>
       </ul>
     blocks:
       - text
@@ -119,4 +168,25 @@ games:
       - math_number
       - math_arithmetic
       - logic_operation
-
+  - external_id: complex_if
+    title: Maximum
+    description: Use some more complex if statements
+    status: active
+    level_number: 5
+    inputs: pos_int
+    num_inputs: 3
+    prompt: >
+      Given three input numbers output the largest number.
+      <br>
+      Hint: The code inside of an <strong>if</strong>, <strong>else if</strong>, or <strong>else</strong> block can contain more
+      conditional blocks.
+    blocks:
+      - text
+      - input
+      - output
+      - condition
+      - variable
+      - logic_compare
+      - math_number
+      - math_arithmetic
+      - logic_operation

@@ -63,6 +63,20 @@ def _if_else_if_else(inputs=None):
     else: 
         return ['No Answer']
 
+
+def _more_else_if(inputs=None):
+    val = inputs[0]
+    if val >= 80:
+        return ['A']
+    elif val >= 65:
+        return ['B']
+    elif val >= 45:
+        return ['C']
+    elif val >= 25:
+        return ['D']
+    return ['F']
+
+
 def _and_or(inputs=None):
     a = inputs[0]
     b = inputs[1]
@@ -79,6 +93,11 @@ def _and_or(inputs=None):
         lst.append('Neither is true')
     return lst
 
+
+def _complex_if(inputs=None):
+    return max(inputs)
+
+
 # print numbers from 0 to the integer
 def _for_loops_0(inputs=None):
     a = inputs[0]
@@ -86,6 +105,7 @@ def _for_loops_0(inputs=None):
     for i in range(a+1):
         lst.append(i)
     return lst
+
 
 # print only even numbers from 0 to the integer
 def _for_if(inputs=None):
@@ -95,6 +115,7 @@ def _for_if(inputs=None):
         if (i % 2 == 0):
             lst.append(i)
     return lst
+
 
 # print a sum of integers from 0 to up until the integer
 def _while_loop(inputs=None):
@@ -106,6 +127,7 @@ def _while_loop(inputs=None):
     lst.append(sum)
     return lst
 
+
 # print converted binary values (from decimal) sequentially
 def _while_decimal(inputs=None):
     decimal = inputs[0]
@@ -114,6 +136,7 @@ def _while_decimal(inputs=None):
         lst.append(decimal % 2)
         decimal = round(decimal // 2)
     return lst
+
 
 # print true / false based on validation if the number is prime
 def _while_prime(inputs=None):
@@ -128,6 +151,7 @@ def _while_prime(inputs=None):
     lst.append(prime)
     return lst
 
+
 # print sum of integers inside a list
 def _list_basic(inputs=None):
     a = inputs[0]
@@ -137,6 +161,7 @@ def _list_basic(inputs=None):
         sum += a[i]
     lst = [sum]
     return lst
+
 
 # print the index of the maximum integer
 def _list_index(inputs=None):
@@ -150,6 +175,7 @@ def _list_index(inputs=None):
     lst = [maxInd]
     return lst
 
+
 # print only even numbers sorted in ascending order
 def _list_sort(inputs=None):
     a = inputs[0]
@@ -160,6 +186,7 @@ def _list_sort(inputs=None):
             lst.append(a[i])
     return lst
 
+
 # FizzBuzz game
 def _fizz_buzz(inputs=None):
     fizzbuzz = inputs[0]
@@ -167,13 +194,14 @@ def _fizz_buzz(inputs=None):
     for i in range(1, fizzbuzz+1):
         if (i % 15 == 0):
             lst.append('FizzBuzz')
-        elif (i % 3 ==0):
+        elif (i % 3 == 0):
             lst.append('Fizz')
-        elif (i % 5 ==0):
+        elif (i % 5 == 0):
             lst.append('Buzz')
         else:
             lst.append(i)
     return lst
+
 
 SOLUTIONS = {
     'intro': _intro,
@@ -181,18 +209,19 @@ SOLUTIONS = {
     'input_and_variables': _reverse_with_vars,
     'input_variables_arithmetic': _basic_velocity,
     'multiply_by_eight': _multiply_by_eight,
-    'basic_if' : _basic_if,
-    'else' : _if_else,
-    'if_else_if_else' : _if_else_if_else,
-    'and_or' : _and_or,
-    'for_loops_0' : _for_loops_0,
-    'for_if' : _for_if,
-    'while_loop' : _while_loop,
-    'while_decimal' : _while_decimal,
-    'while_prime' : _while_prime,
-    'list_basic' : _list_basic,
-    'list_index' : _list_index,
-    'list_sort' : _list_sort,
-    'fizz_buzz' : _fizz_buzz,
-
+    'basic_if': _basic_if,
+    'else': _if_else,
+    'else_if' : _if_else_if_else,
+    'more_else_if': _more_else_if,
+    'and_or': _and_or,
+    'complex_if': _complex_if,
+    'for_loops_0': _for_loops_0,
+    'for_if': _for_if,
+    'while_loop': _while_loop,
+    'while_decimal': _while_decimal,
+    'while_prime': _while_prime,
+    'list_basic': _list_basic,
+    'list_index': _list_index,
+    'list_sort': _list_sort,
+    'fizz_buzz': _fizz_buzz,
 }
