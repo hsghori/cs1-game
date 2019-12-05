@@ -202,6 +202,38 @@ def _fizz_buzz(inputs=None):
             lst.append(i)
     return lst
 
+# Compare two lists
+def _list_compare(inputs=None):
+    list0_sum = sum(inputs[0])
+    list1_sum = sum(inputs[1])
+    lst = []
+    if list0_sum > list1_sum:
+        msg = 'sumList1[' + str(list0_sum) + '] > sumList2[' + str(list1_sum) + ']'
+        lst.append(msg)
+    else: 
+        msg = 'sumList1[' + str(list0_sum) + '] < sumList2[' + str(list1_sum) + ']'
+        lst.append(msg)
+    return lst
+
+# MinMax of lists
+def _list_minmax(inputs=None):
+    maxVal = max(inputs[0])
+    minVal = min(inputs[0])
+    msg = 'max=' + str(maxVal) + ',min=' + str(minVal)
+    return [msg]
+
+# Make the sublist of a list
+def _list_sublist(inputs=None):
+    print('list-sublist')
+    oldList = inputs[0]
+    average = sum(oldList) / len(oldList)
+    print('average=',average)
+    newList = []
+    for i in range(len(oldList)):
+        if (oldList[i] > average) : 
+            newList.append(oldList[i])
+    print('newList',newList)
+    return [newList]
 
 SOLUTIONS = {
     'intro': _intro,
@@ -220,8 +252,12 @@ SOLUTIONS = {
     'while_loop': _while_loop,
     'while_decimal': _while_decimal,
     'while_prime': _while_prime,
-    'list_basic': _list_basic,
-    'list_index': _list_index,
-    'list_sort': _list_sort,
     'fizz_buzz': _fizz_buzz,
+    'list_basic' : _list_basic,
+    'list_index' : _list_index,
+    'list_sort' : _list_sort,
+    'list_compare' : _list_compare,
+    'list_minmax' : _list_minmax,
+    'list_sublist' : _list_sublist,
+
 }

@@ -100,40 +100,111 @@ games:
       - math_number
       - lists_sort
   - external_id: list_compare
-    title: Compare sums of two lists
-    description: Working on it..
+    title: Compare two lists
+    description: Compare sums of two lists
     status: active
     level_number: 3
     inputs: list_int
     num_inputs: 2
     list_input_size: 5
     prompt: >
-      <cite>Compare sums of two lists. <br>
+      <cite>There are many use-cases with a <strong>list</strong> structure having numbers.<br>
+      You might want to calucate sum, average, medium value from the list of integers. 
+      In this game, you need to calcuate a sum of integers from each list, compare two sums, and then print summanry according to the result.
       </cite>
       <ul>
         <li>Instruction</li> 
-        <ol>Yow will be given one positive integer. <br>
+        <ol>Yow will be given two sets of lists, that consist of integers. <br>
+        Print the summary result as instructed; <br>
+        Let's sum1, sum2 be the sum of list1 and sum of list2 <br>
+        If sum1 > sum2 ,print <strong>sumList1[sum1] > sumList2[sum2]</strong> <br>
+        else, print <strong>sumList1[sum1] < sumList2[sum2] </strong><br>
+        For example, <br>
+        list1 = 77,64,7,-53,-21   list2 = 88,-77,-65,92,-60 <br>
+        sum of list1 = 74, sum of list2 = -22, <br>
+        sumList1[74] > sumList2[-22]
+        <ol>
+      </ul>
+    blocks:
+      - variable
+      - output
+      - input
+      - text
+      - text_join
+      - math_number
+      - controls_if 
+      - controls_for
+      - math_modulo
+      - math_arithmetic
+      - logic_compare
+      - math_on_list
+  - external_id: list_minmax
+    title: MinMax of List
+    description: Calculate maximum / minimum from list
+    status: active
+    level_number: 4
+    inputs: list_int
+    num_inputs: 1
+    list_input_size: 10
+    prompt: >
+      <cite>Many programmers frequently need to calculate the maximum or minimum value from the list when you are working on any algorithm.<br>
+      In this game, you are asked to get the maximum and minimum values from the integer list and print them.
+      </cite>
+      <ul>
+        <li>Instruction</li> 
+        <ol>Yow will be given a set of list having 10 integers in random order. <br>
+        Print <strong>max=xx,min=yy</strong> <br>
+        For example, <br>
+        Let's the list be [31,34,-83,-32,21,-75,44,-61,75,-66] <br>
+        max=75,min=-83
         </ol>
       </ul>
     blocks:
       - variable
-      - text
       - output
       - input
+      - math_number
+      - text
+      - text_join
       - controls_if
-      - controls_for
-      - math_modulo 
       - controls_forEach
-      - controls_for # for loop
       - math_arithmetic
       - logic_compare
+      - math_on_list 
+  - external_id: list_sublist
+    title: SubList of List
+    description: Make a sublist from a list
+    status: active
+    level_number: 5
+    inputs: list_int
+    num_inputs: 1
+    list_input_size: 10
+    prompt: >
+      <cite>Many programmers also need to manipulate lists and make a new list after making changes on it.<br>
+      In this game, you will create a new list from an original list and print the new one.
+      </cite>
+      <ul>
+        <li>Instruction</li> 
+        <ol>Yow will be given a set of list having 10 integers in random order. <br>
+        Make a new list whose elements are greater than average of the list, and then print the new list. <br>
+        For example, <br>
+        Let's the list be [57,-75,96,39,80,-87,-89,-4,-1,18] <br>
+        Sum = 34, number of elements = 10, So average = Sum / Number = 3.4 <br>
+        Therefore, the new list will be [57,96,39,80,18]
+        </ol>
+      </ul>
+    blocks:
+      - variable
+      - output
+      - input
+      - text
+      - text_join
       - math_number
-      - math_on_list # sum of list
-      - lists_sort
+      - controls_if
+      - controls_forEach
+      - logic_compare
+      - math_on_list # sum,average,min,max for list
       - lists_setIndex
       - lists_getIndex
       - lists_length
-      - lists_indexOf
-      - lists_repeat
       - lists_create_with
-      - lists_getSublist
