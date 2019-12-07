@@ -14,9 +14,23 @@ games:
       system called Blockly. You will combine the blocks in the "workbench" on the left
       in the "workspace" on the right to create programs.
       <br>
-      For your first task, use the provided blocks to output "Hello world!". When you think
-      you have the correct configuration of blocks, hit the "Run" button to see how your
-      program runs.
+      We have provided you with two blocks:
+      <ul>
+        <li>
+          The <strong>output</strong> block outputs the attached value. You can see outputted values in the green box on the right.
+          We will use the values you output to determine if you have written the programs correctly.
+        </li>
+        <li>
+          The <strong>text</strong> block allows you to use text values (otherwise known as strings). You can type anything into the
+          text box and use it in your program.
+        </li>
+      </ul>
+      You can hook blocks together to form commands. Try hooking the <strong>output</strong> block to a <strong>text</strong> block
+      and click the "Run" button. What happens? What do you see when you type your name in the text box and hit "Run"? What happens
+      when you hook two output blocks together vertically and attached different text blocks to the right of each output block?
+      <br>
+      Experiment with the <strong>output</strong> and <strong>text</strong> blocks. When you understand how the workspace works, use
+      the blocks to output the string "Hello world!" and click the "Run and submit" button to check your code.
     blocks:
       - text
       - output
@@ -37,14 +51,21 @@ games:
       <br>
       Yow now have access to three new blocks
       <ul>
-        <li>The <strong>input</strong> block takes the next value from the input.</li>
-        <li>The <strong>number</strong> block gives you access to constant integers</li>
-        <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers</li>
+        <li>
+          The <strong>input</strong> block takes the next value from the input stream. <br>
+          An example input stream is located in the blue box on the right - each element in the input stream is on its own
+          line. Every time you use the <strong>input</strong> block
+          you will be getting the next unused value from the top of the input stream. So the first use of the <strong>input</strong> block
+          will give you the first value in the blue box, the second use of the <strong>input</strong> block will give you the second value in the blue box,
+          etc. If you use the input box more times than there are input values, your program will fail.
+        </li>
+        <li>The <strong>number</strong> block gives you access to constant numbers. You can type any number (positive, negative, decimal, etc) into the box to use the number in your program.</li>
+        <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers. Specifically you can perform addition, subtraction, multiplication, division, and exponents.</li>
       </ul>
       Given these blocks, output the sum of the two provided input values.
       <br>
-      <strong>Your code will be run on other input values so make sure you use the provided blocks and arithmetic operators
-      instead of just outputting the results yourself</strong>
+      <strong>Your code will be run on other input streams so make sure you use the provided blocks and arithmetic operators
+      instead of just doing the math yourself</strong>
     blocks:
       - math_arithmetic
       - math_number
@@ -74,6 +95,8 @@ games:
       blocks will allow you to toggle between variables and rename your variables.
       <br>
       We have provided the input in a specific order. Use the variable blocks to output the input values in reverse.
+      <br>
+      Hint: Try creating variables and setting them to your input values.
     blocks:
       - variable
       - input
@@ -99,6 +122,8 @@ games:
       </ol>
       <br>
       Output the distance an object rolls given the input values.
+      <br>
+      Hint: You can use variables to store the results of intermediate steps in this equation.
     blocks:
       - variable
       - math_arithmetic
@@ -112,10 +137,16 @@ games:
     inputs: pos_int
     num_inputs: 1
     prompt: >
-      Given an <strong>addition</strong> block and some variable blocks, can you
-      multiply the input value by 8?
+      Programming isn't all complex equations and manipulating inputs. Being a good programming requires that you be able to find
+      creative solutions to problems that may seem very simple.
       <br>
-      Hint: There is a way to do this in only three additions instead of eight.
+      We have given you an <strong>addition-only</strong> block which only performs addition as well as the standard
+      variable blocks.
+      <br>
+      Output the input value multiplied by 8. Then output the input value multiplied by 16.
+      <br>
+      Hint: You could brute force your way through this problem by chaining 16 additions together. But there is a way to do this
+      using only 4 addition blocks.
     status: active
     blocks:
       - variable

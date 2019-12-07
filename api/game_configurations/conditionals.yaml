@@ -12,7 +12,7 @@ games:
     inputs: int
     num_inputs: 3
     prompt: >
-      So far we've been able to transform input into output in a very set and structured way. But what if we want to perform
+      So far we've been able to transform input into output in a very linear way. But what if we want to perform
       different tasks based on the value of our input?
       <br>
       You have access to two new blocks that will help you perform these "conditional operations".
@@ -102,11 +102,11 @@ games:
       You are a teacher grading a very hard exam. To be nice to your students you have adjusted the grading scale to make
       sure they can still get good grades.
       <ul>
-        <li>A grade between 80 and 100 is an "A"</li>
-        <li>A grade between 65 and 80 is a "B"</li>
-        <li>A grade between 45 and 65 is a "C"</li>
-        <li>A grade between 25 and 45 is a "D"</li>
-        <li>A grade between 0 and 25 is an "F"</li>
+        <li>A score between 80 and 100 is an "A"</li>
+        <li>A score between 65 and 80 is a "B"</li>
+        <li>A score between 45 and 65 is a "C"</li>
+        <li>A score between 25 and 45 is a "D"</li>
+        <li>A score between 0 and 25 is an "F"</li>
       </ul>
       If a student is on a boundary they should receive the higher grade (so an 80 is an A, not a B).
       <br>

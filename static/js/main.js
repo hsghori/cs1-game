@@ -164,8 +164,32 @@ $('document').ready(() => {
 		JSON.parse(document.getElementById('app').dataset.inputs2),
 		JSON.parse(document.getElementById('app').dataset.inputs3),
 	];
-	
+
 	$('#run').click(() => {
+		// run the code on the example input but don't check it.
+		window.LoopTrap = 1000;
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
+		let code = Blockly.JavaScript.workspaceToCode(workspace);
+		$('#outputs').text('');
+		try {
+			runCode(code, inputs[0], true);
+		} catch (e) {
+			const modalContents = `
+				<h3>Whoops</h3>
+				<p>Your code caused an error.</p>
+				<p>${e}</p>
+			`;
+			modalInit.default({
+				contents: modalContents,
+				dismissText: 'Try again!',
+				ctaPosition: 'center',
+				includeDismissCta: true,
+			});
+		}
+	});
+	
+	$('#run-and-submit').click(() => {
+		// run the code on all inputs and check for correctness
 		window.LoopTrap = 1000;
 		Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
 		let code = Blockly.JavaScript.workspaceToCode(workspace);

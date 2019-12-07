@@ -1,4 +1,4 @@
-django
+django<3
 djangorestframework
 pyyaml
 django-webpack-loader
