@@ -57,7 +57,7 @@ games:
           line. Every time you use the <strong>input</strong> block
           you will be getting the next unused value from the top of the input stream. So the first use of the <strong>input</strong> block
           will give you the first value in the blue box, the second use of the <strong>input</strong> block will give you the second value in the blue box,
-          etc. If you use the input box more times than there are input values, your program will fail.
+          etc. If you use the <strong>input</strong> block more times than there are input values, your program will fail.
         </li>
         <li>The <strong>number</strong> block gives you access to constant numbers. You can type any number (positive, negative, decimal, etc) into the box to use the number in your program.</li>
         <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers. Specifically you can perform addition, subtraction, multiplication, division, and exponents.</li>

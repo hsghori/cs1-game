@@ -132,6 +132,18 @@ class TestUserGameModule(TestCase):
             blocks='',
             status='A'
         )
+        self.game_23 = models.GameLevelModel.objects.create(
+            external_id='fake_23',
+            title='fake_23',
+            description='fake_23',
+            module=self.module_2,
+            inputs=models.GameLevelModel.INPUT_TYPES.INTEGER,
+            num_inputs=5,
+            level_number=2,
+            prompt='',
+            blocks='',
+            status='A'
+        )
         self.user = User.objects.create_user(
             username='test',
             password='smoothunicorn'
@@ -140,7 +152,7 @@ class TestUserGameModule(TestCase):
     def test_create_on_user_create(self):
         assert len(models.UserGameModuleModel.objects.all()) == 2
         for module in models.UserGameModuleModel.objects.all():
-            assert module.user_games.count() == 2
+            assert module.user_games.count() == module.game_module.games.count()
 
     def test_create_new_module_and_level(self):
         module = models.GameModuleModel.objects.create(
@@ -223,6 +235,7 @@ class TestUserGameModule(TestCase):
         game.mark_complete()
         next_game = models.UserGameLevelModel.objects.filter(
             user=self.user,
+            game_level__module_id=game.game_level.module_id,
             game_level__level_number__gt=self.game_12.level_number
         ).first()
         assert next_game.game_level.id == game_13.id
