@@ -20,14 +20,7 @@ def _basic_velocity(inputs=None):
 
 
 def _multiply_by_eight(inputs=None):
-    # note that for this problem, the students are only provided with addition blocks
-    # so in the best case their solution will look like:
-    #
-    #     x = input
-    #     x = x + x  # x = input * 2^1
-    #     x = x + x  # x = input * 2^2
-    #     x = x + x  # x = input * 2^3 = input * 8
-    return [8*i for i in inputs]
+    return [8*inputs[0], 16*inputs[0]]
 
 
 # return all integers which are only positive

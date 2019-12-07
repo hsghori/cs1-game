@@ -223,6 +223,7 @@ class UserGameLevelModel(models.Model):
         remaining_games = UserGameLevelModel.objects.filter(
             user=self.user,
             game_level__level_number__gt=self.game_level.level_number,
+            game_level__module_id=self.game_level.module_id
         )
         if not remaining_games:
             raise NoMoreEntitiesException()
@@ -235,6 +236,7 @@ class UserGameLevelModel(models.Model):
         remaining_games = UserGameLevelModel.objects.filter(
             user=self.user,
             game_level__level_number__gt=self.game_level.level_number,
+            game_level__module_id=self.game_level.module_id
         )
         if remaining_games:
             return remaining_games.first().id

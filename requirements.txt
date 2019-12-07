@@ -1,10 +1,10 @@
-django
-djangorestframework
+Django==2.2.8
+django-model-utils==3.2.0
+django-webpack-loader==0.6.0
+djangorestframework==3.10.3
+pytest-django==3.7.0
 pyyaml
-django-webpack-loader
-django-model-utils
-pinax-points
-psycopg2
+psycopg2==2.8.4
 pytest
-pytest-django
 git+https://github.com/pinax/pinax-badges.git
+pinax-points==1.0
