@@ -34,14 +34,11 @@ Helpful: 17 <br>
 
 
 **Takeaways**:
-* Greater than 86% of participants were able to access our app deployed in the cloud
+* Greater than 86% of participants were able to access our application deployed in the cloud
 * Greater than 81% of participants were able to create a new user and sign in
+  * Most of the issues were because of being unable to reach the application
 * Greater than 63% of participants said the UI was easy to navigate, over 81% between easy and medium
 * Less than 25% of participants had a difficult time completing the game modules
 * Greater than 75% of participants found the game modules engaging
 * Nearly 80% of participants found the game modules at least a little bit helpful in regards to learning CS concepts
-
-
-
-
-
+* A common feedback from participants was centered around unfamiliarity with Blockly and providing hints
