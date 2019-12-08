@@ -1,5 +1,4 @@
 
-
 def _intro(inputs=None):
     return ['Hello world!']
 
@@ -26,18 +25,18 @@ def _multiply_by_eight(inputs=None):
 # return all integers which are only positive
 def _basic_if(inputs=None):
     lst = []
-    if(inputs[0] > 0):
+    if inputs[0] > 0:
         lst.append(inputs[0])
-    if(inputs[1] > 0): 
+    if inputs[1] > 0:
         lst.append(inputs[1])
-    if(inputs[2] > 0): 
+    if inputs[2] > 0:
         lst.append(inputs[2])
     return lst
 
 
 # return absolute integer
 def _if_else(inputs=None):
-    if(inputs[0] > 0):
+    if inputs[0] > 0:
         return [inputs[0]]
     else:
         return [-1*inputs[0]]
@@ -49,9 +48,9 @@ def _if_else_if_else(inputs=None):
     b = inputs[1]
     c = inputs[2]
     d = inputs[3]
-    if(a > b):
+    if a > b:
         return [a + b]
-    elif( c < d):
+    elif c < d:
         return [c + d]
     else: 
         return ['No Answer']
@@ -76,11 +75,11 @@ def _and_or(inputs=None):
     c = inputs[2]
     d = inputs[3]
     lst = []
-    if(a > b and c > d):
+    if a > b and c > d:
         lst.append('Both are true')
     else:
         lst.append('Both are NOT true')
-    if(a > b or c > d):
+    if a > b or c > d:
         lst.append('One is true')
     else:
         lst.append('Neither is true')
@@ -105,7 +104,7 @@ def _for_if(inputs=None):
     a = inputs[0]
     lst = []
     for i in range(a+1):
-        if (i % 2 == 0):
+        if i % 2 == 0:
             lst.append(i)
     return lst
 
@@ -154,35 +153,19 @@ def _fibonacci(inputs=None):
 # print sum of integers inside a list
 def _list_basic(inputs=None):
     a = inputs[0]
-    sum = 0
-    for i in range(len(a)):
-        # print('(debug)', i, ':',a[i])
-        sum += a[i]
-    lst = [sum]
-    return lst
+    return sum(a)
 
 
 # print the index of the maximum integer
 def _list_index(inputs=None):
     a = inputs[0]
     max = -1
-    maxInd = 0
+    max_ind = 0
     for i in range(len(a)):
-        if (a[i] > max) : 
+        if a[i] > max :
             max = a[i]
-            maxInd = i
-    lst = [maxInd]
-    return lst
-
-
-# print only even numbers sorted in ascending order
-def _list_sort(inputs=None):
-    a = inputs[0]
-    a.sort()
-    lst = []
-    for i in range(len(a)):
-        if (a[i] % 2 == 0) : 
-            lst.append(a[i])
+            max_ind = i
+    lst = [max_ind]
     return lst
 
 
@@ -206,36 +189,35 @@ def _fizz_buzz(inputs=None):
 def _list_compare(inputs=None):
     list0_sum = sum(inputs[0])
     list1_sum = sum(inputs[1])
-    lst = []
+    out = []
     if list0_sum > list1_sum:
-        msg = 'sumList1[' + str(list0_sum) + '] > sumList2[' + str(list1_sum) + ']'
-        lst.append(msg)
+        out.append('List One is bigger')
+    elif list0_sum == list1_sum:
+        out.append('Same size')
     else: 
-        msg = 'sumList1[' + str(list0_sum) + '] < sumList2[' + str(list1_sum) + ']'
-        lst.append(msg)
-    return lst
+        out.append('List Two is bigger')
+    return out
 
 
 # MinMax of lists
 def _list_minmax(inputs=None):
     maxVal = max(inputs[0])
     minVal = min(inputs[0])
-    msg = 'max=' + str(maxVal) + ',min=' + str(minVal)
-    return [msg]
+    return [maxVal, minVal]
 
 
-# Make the sublist of a list
-def _list_sublist(inputs=None):
-    print('list-sublist')
-    oldList = inputs[0]
-    average = sum(oldList) / len(oldList)
-    print('average=',average)
-    newList = []
-    for i in range(len(oldList)):
-        if (oldList[i] > average) : 
-            newList.append(oldList[i])
-    print('newList',newList)
-    return [newList]
+def _list_advanced(inputs=None):
+    l_one = inputs[0]
+    l_two = inputs[1]
+    out = []
+    for el in l_one:
+        for el2 in l_two:
+            if el == el2:
+                break
+        else:
+            out.append(el)
+    return out
+
 
 
 SOLUTIONS = {
@@ -258,9 +240,7 @@ SOLUTIONS = {
     'fizz_buzz': _fizz_buzz,
     'list_basic' : _list_basic,
     'list_index' : _list_index,
-    'list_sort' : _list_sort,
     'list_compare' : _list_compare,
     'list_minmax' : _list_minmax,
-    'list_sublist' : _list_sublist,
-
+    'list_advanced': _list_advanced,
 }

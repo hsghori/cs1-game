@@ -29,6 +29,8 @@ games:
       and click the "Run" button. What happens? What do you see when you type your name in the text box and hit "Run"? What happens
       when you hook two output blocks together vertically and attached different text blocks to the right of each output block?
       <br>
+      <strong>Instructions</strong>
+      <br>
       Experiment with the <strong>output</strong> and <strong>text</strong> blocks. When you understand how the workspace works, use
       the blocks to output the string "Hello world!" and click the "Run and submit" button to check your code.
     blocks:
@@ -62,6 +64,8 @@ games:
         <li>The <strong>number</strong> block gives you access to constant numbers. You can type any number (positive, negative, decimal, etc) into the box to use the number in your program.</li>
         <li>The <strong>arithmetic</strong> block lets you perform basic arithmetic with two numbers. Specifically you can perform addition, subtraction, multiplication, division, and exponents.</li>
       </ul>
+      <strong>Instructions</strong>
+      <br>
       Given these blocks, output the sum of the two provided input values.
       <br>
       <strong>Your code will be run on other input streams so make sure you use the provided blocks and arithmetic operators
@@ -94,6 +98,8 @@ games:
       You can create more than one variable by clicking <strong>Create Variable</strong> again. The setter and getter
       blocks will allow you to toggle between variables and rename your variables.
       <br>
+      <strong>Instructions</strong>
+      <br>
       We have provided the input in a specific order. Use the variable blocks to output the input values in reverse.
       <br>
       Hint: Try creating variables and setting them to your input values.
@@ -121,6 +127,8 @@ games:
         <li>Acceleration - the rate at which the speed is increasing.</li>
       </ol>
       <br>
+      <strong>Instructions</strong>
+      <br>
       Output the distance an object rolls given the input values.
       <br>
       Hint: You can use variables to store the results of intermediate steps in this equation.
@@ -142,6 +150,8 @@ games:
       <br>
       We have given you an <strong>addition-only</strong> block which only performs addition as well as the standard
       variable blocks.
+      <br>
+      <strong>Instructions</strong>
       <br>
       Output the input value multiplied by 8. Then output the input value multiplied by 16.
       <br>

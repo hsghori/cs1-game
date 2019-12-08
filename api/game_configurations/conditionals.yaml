@@ -22,6 +22,16 @@ games:
             takes any series of blocks. The blocks in the second slot are executed if the condition in the first block is True</li>
         <li>The <strong>Comparison</strong> block allows you to compare two numbers using a series of logical operations (<, >, =, etc)</li>
       </ul>
+      For example:
+      <pre>
+        <code class="code">
+          if value < 10:
+            output("Was less than 10")
+        </code>
+      </pre>
+      Will only output the text "Was less than 10" if the condition <code>value < 10</code> is True.
+      <br>
+      <strong>Instructions</strong>
       <br>
       Given three input integers output only the positive integers.
     blocks:
@@ -45,6 +55,8 @@ games:
       Click on the settings icon in the <strong>if</strong> block to access an <strong>else</strong> block. An <strong>else</strong> block must be attached to
       an <strong>if</strong> block and any code inside of the <strong>else</strong> block will be executed if the condition
       of the <strong>if</strong> block is False.
+      <br>
+      <strong>Instructions</strong>
       <br>
       Given the if and else blocks, return the absolute value of the input value. The absolute value of a number is
       the magnitude of the number without regard to its sign.
@@ -75,6 +87,8 @@ games:
       blocks may be attached to an <strong>if</strong> block and an <strong>else</strong> block may be attached to the last
       <strong>else if</strong> block in the sequence. The <strong>else</strong> block will only be executed if all
       <strong>if</strong> and <strong>else if</strong> conditions are false.
+      <br>
+      <strong>Instructions</strong>
       <br>
       Given four integers (a, b, c, d)
       <ul>
@@ -109,6 +123,8 @@ games:
         <li>A score between 0 and 25 is an "F"</li>
       </ul>
       If a student is on a boundary they should receive the higher grade (so an 80 is an A, not a B).
+      <br>
+      <strong>Instructions</strong>
       <br>
       Given an input value, output the corresponding grade.
     blocks:
@@ -152,6 +168,7 @@ games:
           </ul>
         </li>
       </ul>
+      <strong>Instructions</strong>
       <br>
       Given four integers (a, b, c, d)
       <ul>
@@ -176,6 +193,8 @@ games:
     inputs: pos_int
     num_inputs: 3
     prompt: >
+      <strong>Instructions</strong>
+      <br>
       Given three input numbers output the largest number.
       <br>
       Hint: The code inside of an <strong>if</strong>, <strong>else if</strong>, or <strong>else</strong> block can contain more
