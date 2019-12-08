@@ -14,7 +14,6 @@ String.prototype.toProperCase = function() {
 
 const getToolbox = () => {
 	const blocks = document.getElementById('app').dataset.blocks.split(', ');
-	const variableIdx = blocks.findIndex((el) => el === 'variable');
 	const conditionIdx = blocks.findIndex((el) => el === 'condition');
 	let extraCategories = '';
 
@@ -27,6 +26,7 @@ const getToolbox = () => {
 		</category>
 		`;
 	}
+	const variableIdx = blocks.findIndex((el) => el === 'variable');
 	if (variableIdx >= 0) {
 		blocks.splice(variableIdx, 1);
 		extraCategories += '<category name="Variables" colour="#a55b80" custom="VARIABLE"></category>';

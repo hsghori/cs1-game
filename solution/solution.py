@@ -131,18 +131,24 @@ def _while_decimal(inputs=None):
     return lst
 
 
-# print true / false based on validation if the number is prime
-def _while_prime(inputs=None):
-    num = inputs[0]
-    lst = []
-    prime = True
-    for i in range(2, num):
-        # print('(debug)',num, ' % ', i, ' == ',(num % i))
-        if(num % i) ==0:
-            prime = False
-            break
-    lst.append(prime)
-    return lst
+def _fibonacci(inputs=None):
+    outputs = [0, 1]
+    value = inputs[0]
+    if value == 0:
+        return [0]
+    elif value == 1:
+        return outputs
+
+    a = 0
+    b = 1
+    c = 0
+    while c < value:
+        c = a + b
+        if c < value:
+            outputs.append(c)
+        a = b
+        b = c
+    return outputs
 
 
 # print sum of integers inside a list
@@ -195,6 +201,7 @@ def _fizz_buzz(inputs=None):
             lst.append(i)
     return lst
 
+
 # Compare two lists
 def _list_compare(inputs=None):
     list0_sum = sum(inputs[0])
@@ -208,12 +215,14 @@ def _list_compare(inputs=None):
         lst.append(msg)
     return lst
 
+
 # MinMax of lists
 def _list_minmax(inputs=None):
     maxVal = max(inputs[0])
     minVal = min(inputs[0])
     msg = 'max=' + str(maxVal) + ',min=' + str(minVal)
     return [msg]
+
 
 # Make the sublist of a list
 def _list_sublist(inputs=None):
@@ -227,6 +236,7 @@ def _list_sublist(inputs=None):
             newList.append(oldList[i])
     print('newList',newList)
     return [newList]
+
 
 SOLUTIONS = {
     'intro': _intro,
@@ -244,7 +254,7 @@ SOLUTIONS = {
     'for_if': _for_if,
     'while_loop': _while_loop,
     'while_decimal': _while_decimal,
-    'while_prime': _while_prime,
+    'fibonacci': _fibonacci,
     'fizz_buzz': _fizz_buzz,
     'list_basic' : _list_basic,
     'list_index' : _list_index,

@@ -12,20 +12,51 @@ games:
     inputs: pos_int
     num_inputs: 1
     prompt: >
-      You can practice basic for-loop with this blockly game.<br>
-      <cite>The <strong>for</strong> statement provides a looping structure and it has a counter variable.<br>
-      This variable needs to be initialized before the loop begins 
-      and then the counter will be incremented by constant number(i.e. 1 or 2) at the end of each iteration.
-       </cite>
+      The real power of computers comes from their ability to perform repetitive tasks much more quickly than humans. We
+      can get a computer to repeat tasks by using <strong>loop</strong> statements.
       <br>
-      <li> Instruction</li>
-      You will be given a positive integer. Make a Blockly game which prints out numbers sequentially from 0 to the number given.
+      A <strong>For loop</strong> is the most straightforward type of loop. It has three stages:
+      <ol>
+        <li>Initialization: set a counter variable to an initial value</li>
+        <li>Ending condition: set the limit on the counter variable</li>
+        <li>Assignment: set how the counter variable will change between each iteration</li>
+      </ol>
+      In blockly this kind of structure exists in the <strong>Count with</strong> block.
+
+      <pre class="code">
+      <code>
+        count with i from [start] to [end] by [change]
+          [your code]
+      </code>
+      </pre>
+
+      The code [your code] will be run once for every value of i from [start] to [end]. Every iteration of the loop will
+      change i by the [change] value. So if your loop is:
+
+      <pre class="code">
+      <code>
+        count with i from 1 to 10 by 2
+          [your code]
+      </code>
+      </pre>
+
+      [your code] will be run first with i = 1, then with i = 3, then with i = 5 until i = 9.
+      <br>
+      Experiment with the <strong>Count With</strong> block so you understand how it works and how to use it. We have
+      provided you with arithmetic and if statement code blocks so you can experiment with using different types of code
+      in your for loops.
+      <br>
+      When you understand how for loops work, print out every integer between 0 and the input value.
     blocks:
       - variable
       - output
       - input
       - math_number
       - controls_for
+      - math_arithmetic
+      - controls_if
+      - logic_compare
+      - logic_boolean
   - external_id: for_if
     title: For Loop with If
     description: Select only even numbers
@@ -34,78 +65,82 @@ games:
     inputs: pos_int
     num_inputs: 1
     prompt: >
-      You can practice combination of a for-loop and if condition<br>
-      <cite> An even number is an integer which is "evenly divisible" by two.</cite> <br>
+      Recall that an even number is an integer which is "evenly divisible" by two. That means that if you divide
+      an even number by 2, the remainder will be 0. But if you divide an odd number by 2, the remainder will be 1.
+      <br>
       For example, 0,2,4,6, ... are even numbers. and 1,3,5,7, .. are odd numbers<br>
-      <li>Instruction</li> 
-      You will be given a positive integer. 
-      Make a Blockly game which prints out ONLY even numbers sequentially from 0 up until the number given.<br>
-      Let's say that you are given a number = 12 
-      You only need to print even numbers from 0 to 12.
+      <br>
+      The <strong>modulo</strong> operator (<code>%</code>) is a very useful operator in programming. Given two numbers
+      A, and B, <code>A % B</code> is equal to the remainder if A were to be divided by B. We have provided you with a
+      <strong>modulo</strong> block that performs the modulo operator.
+      <br>
+      Given a positive integer, output out <strong>only</strong> the even numbers sequentially from 0 up until the number given.
+      <br>
+      For example, given the number 12 you would output 0, 2, 4, 6, 8, 10, and 12.
     blocks:
       - variable
       - output
       - input
       - math_number
       - controls_if
-      - controls_whileUntil # while loop
       - controls_for # for loop
-      - controls_flow_statements # breakout
-      - math_number_property # even
+      - math_modulo
       - math_arithmetic # add, subtract, multiply ..
-  - external_id: while_loop
-    title: While - advanced for-loop
-    description: Print sum of integers from 1 to up until the given integer
+  - external_id: fizz_buzz
+    title: FizzBuzz Game
+    description: Write the FizzBuzz game
     status: active
     level_number: 2
     inputs: pos_int
     num_inputs: 1
     prompt: >
-      You can practice a <strong>while</strong>-loop and (counter) variable with this blockly game. <br>
-      <cite>In most computer programming languages, a <strong>while</strong> loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. 
-      The while loop can be thought of as a repeating if statement. (Wikipedia) </cite>
+      Fizz buzz is a group word game for children to teach them about division. <br>
+      Players take turns to count incrementally, replacing any number divisible by three with the word "Fizz",
+      and any number divisible by five with the word "Buzz". A number that is divisible by both 3 and 5 should be
+      replaced with "FizzBuzz".
       <br>
-      It is possible to express more dynamic logics with this while loop because a while loop has more powerful looping behaviour than for-loops.<br>
-      To execute a <strong>while</strong> statement, the logic first evaluates expression or condition.
-      The loop keeps continuing until the condition is true.
-      However, if the condition is false, the flow skips over the loop body and moves on to the next statement.
-      <li>Instruction</li> 
-      You will be given a positive integer <strong>N</strong>. 
-      Print the sum of positive integers from 1 to the given integer. <br>
-      sum = 1 + 2 + 3 + ... + N
+      For example, a typical round of fizz buzz would start as follows: <br>
+      1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, <br>
+      16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, FizzBuzz, <br>
+      31, 32, Fizz, 34, Buzz, Fizz, ...
+      <br>
+      Output the results of a FizzBuzz game from 1 up to the given input value.
     blocks:
       - variable
       - text
       - output
       - input
-      - math_number
-      - math_arithmetic
-      - logic_compare
-      - controls_whileUntil
+      - controls_if
       - controls_for
-  - external_id: while_decimal
-    title: While - decimal to binary
-    description: Given a passive integer input, print out a specific pattern
+      - math_number
+      - logic_compare
+      - math_modulo
+  - external_id: while_loop
+    title: The while loop
+    description: More advanced loops
     status: active
     level_number: 3
-    inputs: pos_int
-    num_inputs: 1
+    inputs: int
+    num_inputs: 10
     prompt: >
-      <cite> Binary is a base 2 number system. <br>
-      Base 2 means there are only two digits—1 and 0—which correspond to the on and off states your computer can understand.
-      You’re probably familiar with base 10—the decimal system. Decimal makes use of ten digits that range from 0 to 9, 
-      and then wraps around to form two-digit numbers, with each digit being worth ten times more than the last (1, 10, 100, etc.).
-      Binary is similar, with each digit being worth two times more than the last. <strong>(howtogeek.com)</strong><br>
-      <li>Instruction</li> 
-      You will be given a positive number between 0 < <strong>P</strong> < 100. 
-      Print the binary order from lowest base to highest order. <br>
-      For example, the number 13 can be thought of as (13 = 1x10 &#185; + 3x10 &#8304;). 
-      Similarly the same number 13 with a different base of 2 can also be thought of as "(13 = 1x2 &#179; + 1x2&#178; + 0x2&#185; + 1x2&#8304;) - or the number 1101 in binary.<br>
-      Therefore, it should print like below.<br>
-      >>>1 <br>
-      >>>0 <br>
-      >>>1 <br>
-      >>>1 <br>
+      For loops are very useful for simple looping problems. But they are not helpful if you can't calculate the exact number
+      of times you want the loop to run. Often times, you want a loop to continue until a specific condition is met.
+      The <strong>while</strong> loop is a loop that acts as a repeating if statement. It will keep iterating "while" the condition
+      is true.
+      <pre class="code">
+        <code>
+          repeat while [condition]
+            [your code]
+        </code>
+      </pre>
+      [your code] will be executed until the [condition] evaluates to false. That means that you need to be careful when writing
+      while loops - if you don't do something inside of the loop (like take in new input or change the value of your variables)
+      your loop may run forever.
+      <br>
+      Experiment with the while loop and see how it responds to different conditions.
+      <br>
+      When you understand how the while loop works print out all the inputs up until the first negative input (there will be at
+      least one negative input in the input stream).
     blocks:
       - variable
       - text
@@ -114,28 +149,23 @@ games:
       - math_number
       - math_arithmetic
       - logic_compare
-      - logic_boolean
       - controls_whileUntil
-      - controls_repeat_ext
-      - math_modulo
-      - math_round
-  - external_id: while_prime
-    title: While - a prime number
-    description: Validate a prime number
+  - external_id: fibonacci
+    title: Fibonacci's sequence
+    description: Write the fibonacci sequence
     status: active
     level_number: 4
     inputs: pos_int
     num_inputs: 1
     prompt: >
-      You can create a function which validates a prime number using two sets of blocks <br>
-      (1) a nested-loop and (2) a if-condition<br>
-      <cite>Let's say that <strong>P</strong> is a prime number (or prime integer, often simply called a "prime" for short)<br>
-      if and only if <strong>P</strong> is a positive integer greater than 1 ( <strong>P</strong>  > 1) <br>
-      and it has no positive integer divisors other than 1 and <strong>P</strong> itself.  </cite> <br>
-      Primes are central in Number theory for many features and/or their applications<br>
-      <li>Instruction</li> 
-      Given a positive number between 0 < <strong>P</strong> < 100 <br>
-      return true / false value based on validation whether or not it's prime.
+      The fibonacci sequence is a very common sequence in mathematics. It is defined as:
+      <ul>
+        <li>Fib(0) = 0</li>
+        <li>Fib(1) = 1</li>
+        <li>Fib(n) = Fib(n - 1) + Fib(n - 2) for all n > 1</li>
+      </ul>
+      Output each element of the fibonacci sequence up until the input number.
+      Don't forget to include the first 0 and 1 in your output (if applicable).
     blocks:
       - variable
       - text
@@ -150,38 +180,3 @@ games:
       - controls_flow_statements
       - math_single
       - math_modulo
-  - external_id: fizz_buzz
-    title: FizzBuzz Game
-    description: Make a small FizzBuzz game
-    status: active
-    level_number: 5
-    inputs: pos_int
-    num_inputs: 1
-    prompt: >
-      <cite>Fizz buzz is a group word game for children to teach them about division. <br>
-      Players take turns to count incrementally, replacing any number divisible by three with the word "fizz", 
-      and any number divisible by five with the word "buzz". <strong>(Wikipedia) </strong>
-      </cite>
-      <ul>
-        <ol>For example, a typical round of fizz buzz would start as follows: <br>
-        1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, <br>
-        16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, FizzBuzz, <br>
-        31, 32, Fizz, 34, Buzz, Fizz, ...
-        </ol>
-      </ul>
-      <ul>
-        <li>Instruction</li> 
-        <ol>Yow will be given one positive integer. <br>
-         Make a FizzBuzz game with blocks, which is printing Fizz/Buzz accordingly up to the number<br>
-        </ol>
-      </ul>
-    blocks:
-      - variable
-      - text
-      - output
-      - input
-      - controls_if
-      - controls_for
-      - math_number
-      - logic_compare
-      - math_modulo 

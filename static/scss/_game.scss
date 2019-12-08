@@ -3,6 +3,9 @@
   margin-bottom: 16px;
 }
 
+pre.code {
+  background-color: #eee;
+}
 
 .console {
   display: flex;
@@ -11,22 +14,26 @@
   >div {
     padding: 16px;
     min-height: 64px;
+    max-height: 100%;
   }
 
   .output-console {
     background: rgba(146, 199, 70, 0.5);
     flex: 0.7;
+    overflow-y: scroll;
   }
 
   .input-console {
     background: rgba(83, 200, 237, 0.5);
     flex: 0.3;
+    overflow-y: scroll;
   }
 }
 
 .game-body {
   display: flex;
   flex-direction: row;
+  max-height: 480px;
 
   .workspace {
     flex: 0.7;
