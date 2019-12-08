@@ -13,15 +13,36 @@ games:
     num_inputs: 1
     list_input_size: 5
     prompt: >
-      You can practice basic concept of list<br>
-      <cite> In computer science, an array data structure, or simply an <strong>array</strong> or <strong>list</strong>, is a data structure consisting of a collection of elements (values or variables), 
-      each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula.(Wikipedia) </cite>
-      <br> <br>
-      <ul>
-        <li>Instruction</li> 
-        <ol> Yow will be given a set of integers. Print out sum of integers<br>
-        </ol>
-      </ul>
+      So far we've worked with number and text values. But oftentimes you will want to keep track of a list of values.
+      A <strong>List</strong> is a data structure which stores an ordered sequence of values.
+      <br>
+      For example:
+      <pre>
+        <code class="code">
+          A = [1, 2, 3, 4, 5]
+        </code>
+      </pre>
+      stores a list of the integers 1, 2, 3, 4, and 5.
+      <br>
+      You can use a <strong>For</strong> loop to iterate over each element in a list - instead of iterating over some range
+      of values.
+      <pre>
+        <code class="code">
+          A = [1, 2, 3, 4, 5]
+          for each item i in [A]:
+            [your code]
+        </code>
+      </pre>
+      This will assign the variable <code>i</code> to each value in the list (in the order they are in the list) and
+      execute [your code] using <code>i</code>
+      <br>
+      In the input stream, a list will be represented as a comma delimited set of values all on one line. You can take
+      a list in as input in the same way that you would take in any other value. Play around with the list and for loop given
+      and see how you can use the for loop to output different values from the list.
+      <br>
+      <strong>Instructions</strong>
+      <br>
+      Given an input list of integers, find the sum of the values in the list.
     blocks:
       - variable
       - text
@@ -42,19 +63,33 @@ games:
     num_inputs: 1
     list_input_size: 5
     prompt: >
-      You can practice basic concept of list<br>
-      <cite> In computer science, many data structures (such as list, an associative array, map, symbol table, or dictionary) 
-      are abstract data types composed of a collection of (key, value) pairs, 
-      such that each possible key appears at most once in the collection. (Wikipedia) </cite>
-      <br>
-      It is very important to understand this concept of (key,value) when you're programming 
-      because you need to frequently search values based on the key or index  <br>
+      We have given you a few new blocks to interact with your lists:
+      <pre>
+        <code class="code">
+          A = [1, 2, 3, 4, 5]
+        </code>
+      </pre>
       <ul>
-        <li>Instruction</li> 
-        <ol> In most programming languages, index starts with 0 and continue with 1,2,3, .. and so on. </ol>
-        <ol> You will be given a set of integers. Find out the maximum value of integer and return its index. </ol>
-        <ol> For example, you are given [41,19,49,17,85]. In this case 85 is the biggest number, so return 4 for its index</ol>
+        <li>The <strong>getIndex</strong> block gets the value of the list at the specific position. These positions - or
+            "indexes" start at 0 - so A::getIndex(0) will return the value 1 since that is the first value in the list.
+            Be careful when using getIndex - if you use a position that is negative or a postiion that is bigger than the number
+            of elements in the list, your code will fail. </li>
+        <li>The <strong>length</strong> block gets the number of elements in the list. Note that if A::length = X then the largest position (or index) in
+            A is X - 1.</li>
       </ul>
+      <strong>Instructions</strong>
+      <br>
+      Given these new blocks, find the index of the largest element in the provided list.
+      <br>
+      <strong>Hint:</strong>
+      You can use the for loop to iterate over all of the indexes in the list:
+      <pre>
+        <code>
+          count with i from [smallest index] to [largest possible index] by 1:
+            value = list::getIndex(i)
+        </code>
+      </pre>
+      This way you can keep track of the index and value of the elements in your program.
     blocks:
       - variable
       - text
@@ -65,65 +100,52 @@ games:
       - controls_if
       - math_number
       - math_arithmetic
-      - controls_forEach
-  - external_id: list_sort
-    title: Sort Lists
-    description:  get the feel of sorting algorithm
+      - lists_getIndex
+      - lists_length
+      - controls_for
+  - external_id: list_minmax
+    title: MinMax of List
+    description: More list operations
     status: active
     level_number: 2
-    inputs: list_pos_int
+    inputs: list_int
     num_inputs: 1
     list_input_size: 10
     prompt: >
-      <cite> In computer science, a sorting algorithm is an algorithm that puts elements of a list in a certain order. <br>
-      This algorithm is made up of a series of instructions that takes an array as input, 
-      performs specified operations on the array, sometimes called a list, and outputs a sorted array. 
-      Sorting algorithms are often taught early in computer science classes 
-      as they provide a straightforward way to introduce other key computer science topics like Big-O notation.(Wikipedia) </cite>
-      <br><br>
-      However, this game will give you a very basic sense of sorting of numbers 
-      when you use a specific block which already implemented with sorting algorithm.<br>
-      <ul>
-        <li>Instruction</li> 
-        <ol> Yow will be given a set of 10 integers. Print out only even numbers which are sorted in an ascending order</ol>
-        <ol> For example, you are given [14,44,46,97,36,84,22,7,24,88]. print [14,22,24,36,44,46,84,88], There are no odd numbers (97,7) in sorted numbers </ol>
-      </ul>
+      <strong>Instructions</strong>
+      <br>
+      Given a list of 10 integers, first output the largest value in the list. Then output
+      the smallest value in the list
     blocks:
       - variable
       - output
       - input
+      - math_number
+      - text
+      - text_join
+      - controls_if
       - controls_forEach
       - math_arithmetic
       - logic_compare
-      - math_modulo
-      - controls_if
-      - math_number
-      - lists_sort
   - external_id: list_compare
     title: Compare two lists
-    description: Compare sums of two lists
+    description: Easier list math
     status: active
     level_number: 3
     inputs: list_int
     num_inputs: 2
     list_input_size: 5
     prompt: >
-      <cite>There are many use-cases with a <strong>list</strong> structure having numbers.<br>
-      You might want to calucate sum, average, medium value from the list of integers. 
-      In this game, you need to calcuate a sum of integers from each list, compare two sums, and then print summanry according to the result.
-      </cite>
+      Luckily you don't have to write for loops every time you want to perform basic operations
+      on lists. We have provided you with a <strong>mathOnLists</strong> block which will output the sum, minimum, maximum, etc value in a list of numbers.
+      <br>
+      <strong>Instructions</strong>
+      <br>
+      Given two lists listOne and listTwo
       <ul>
-        <li>Instruction</li> 
-        <ol>Yow will be given two sets of lists, that consist of integers. <br>
-        Print the summary result as instructed; <br>
-        Let's sum1, sum2 be the sum of list1 and sum of list2 <br>
-        If sum1 > sum2 ,print <strong>sumList1[sum1] > sumList2[sum2]</strong> <br>
-        else, print <strong>sumList1[sum1] < sumList2[sum2] </strong><br>
-        For example, <br>
-        list1 = 77,64,7,-53,-21   list2 = 88,-77,-65,92,-60 <br>
-        sum of list1 = 74, sum of list2 = -22, <br>
-        sumList1[74] > sumList2[-22]
-        <ol>
+        <li>if the sum of the values in listOne is greater than the sum of the values in listTwo output "List One is bigger".
+        <li>if the sum of the values in listTwo is greater than the sum of the values in listOne output "List Two is bigger".
+        <li>if the lists have the same sum print output "Same size"</li>
       </ul>
     blocks:
       - variable
@@ -138,61 +160,19 @@ games:
       - math_arithmetic
       - logic_compare
       - math_on_list
-  - external_id: list_minmax
-    title: MinMax of List
-    description: Calculate maximum / minimum from list
+  - external_id: list_advanced
+    title: Set difference
+    description: Find the difference between two lists
     status: active
     level_number: 4
     inputs: list_int
-    num_inputs: 1
+    num_inputs: 2
     list_input_size: 10
     prompt: >
-      <cite>Many programmers frequently need to calculate the maximum or minimum value from the list when you are working on any algorithm.<br>
-      In this game, you are asked to get the maximum and minimum values from the integer list and print them.
-      </cite>
-      <ul>
-        <li>Instruction</li> 
-        <ol>Yow will be given a set of list having 10 integers in random order. <br>
-        Print <strong>max=xx,min=yy</strong> <br>
-        For example, <br>
-        Let's the list be [31,34,-83,-32,21,-75,44,-61,75,-66] <br>
-        max=75,min=-83
-        </ol>
-      </ul>
-    blocks:
-      - variable
-      - output
-      - input
-      - math_number
-      - text
-      - text_join
-      - controls_if
-      - controls_forEach
-      - math_arithmetic
-      - logic_compare
-      - math_on_list 
-  - external_id: list_sublist
-    title: SubList of List
-    description: Make a sublist from a list
-    status: active
-    level_number: 5
-    inputs: list_int
-    num_inputs: 1
-    list_input_size: 10
-    prompt: >
-      <cite>Many programmers also need to manipulate lists and make a new list after making changes on it.<br>
-      In this game, you will create a new list from an original list and print the new one.
-      </cite>
-      <ul>
-        <li>Instruction</li> 
-        <ol>Yow will be given a set of list having 10 integers in random order. <br>
-        Make a new list whose elements are greater than average of the list, and then print the new list. <br>
-        For example, <br>
-        Let's the list be [57,-75,96,39,80,-87,-89,-4,-1,18] <br>
-        Sum = 34, number of elements = 10, So average = Sum / Number = 3.4 <br>
-        Therefore, the new list will be [57,96,39,80,18]
-        </ol>
-      </ul>
+      <strong>Instructions</strong>
+      <br>
+      Given the two input lists, output all the values that are only in the first list, but not in the second list.
+      Don't worry about repeating values (an element can be outputted multiple times).
     blocks:
       - variable
       - output
@@ -201,6 +181,7 @@ games:
       - text_join
       - math_number
       - controls_if
+      - controls_for
       - controls_forEach
       - logic_compare
       - math_on_list # sum,average,min,max for list
