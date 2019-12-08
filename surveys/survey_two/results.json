@@ -26,6 +26,20 @@
          "Yes",
          "Yes",
          "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "No",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
          "Yes"
       ]
    },
@@ -56,7 +70,21 @@
          "none",
          "I am able to connect",
          "N/A",
-         "user name and password required"
+         "user name and password required",
+         "No issues. Was able to connect",
+         "N/A",
+         "n/a",
+         "None",
+         "N/A",
+         "No",
+         "did not",
+         "Broken Link",
+         "na",
+         "None",
+         "n/a",
+         "N/A",
+         "No issues connecting! ",
+         "yes"
       ]
    },
    {
@@ -86,7 +114,21 @@
          "Yes",
          "Yes",
          "Yes",
-         "Yes"
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "No",
+         "Yes",
+         "No",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "Yes",
+         "No"
       ]
    },
    {
@@ -116,7 +158,21 @@
          "none. ",
          "No issues",
          "N/A",
-         "no problems creating user log in"
+         "no problems creating user log in",
+         "No issues. Was able to create",
+         "N/A",
+         "kept getting \"password is too common\", very frustrating since it clears the form every time",
+         "None",
+         "N/A",
+         "First the password is overly guarded for strength without showing rules.  Second, your validation doesn't persist old data so you have to reinput all of the data.",
+         "I didnt know there were password constraints",
+         "N/A",
+         "na",
+         "It rejected my password but did not give what the password requirements were.",
+         "n/a",
+         "N/A",
+         "I was able to create a user successfully. One nice feature would be if the password verification field alerted the user live if the password fields matched. ",
+         "no login"
       ]
    },
    {
@@ -146,7 +202,21 @@
          "Easy",
          "Hard",
          "Medium",
-         "Easy"
+         "Easy",
+         "Medium",
+         "Easy",
+         "Easy",
+         "Easy",
+         "Easy",
+         "Hard",
+         "Easy",
+         "Easy",
+         "Hard",
+         "Medium",
+         "Easy",
+         "Easy",
+         "Easy",
+         "Hard"
       ]
    },
    {
@@ -176,7 +246,21 @@
          "I did not figure out the blocks needed to be dragged and dropped to the dustbin on my first try.",
          "Required a video tutorial before proceeding",
          "Enhancing the look and feel to create a more intuitive flow (i.e. thinking about where the user would look first and building the application flow based on intent).",
-         "when i hit \"run\" the program did not execute"
+         "when i hit \"run\" the program did not execute",
+         "It is pretty clear with option does. However, seeing a lot of \"LOCKED\" the first time logging in caught me off guard.",
+         "It was a pretty simple design so I don't see any further suggestions needed.",
+         "n/a",
+         "All the buttons needed to navigate are there",
+         "Everything was straightforward",
+         "trouble creating name",
+         "its intuitive ",
+         "N/A",
+         "navigational features are missing. ",
+         "For instance, it took me a second to figure out that I had to type in the text - I thought it was conceptual (for \"Hello world!\".  ",
+         "intuitive",
+         "Very simple ui ",
+         "The problem description is a bit of a \"wall of text\" and could benefit from some breakup and formatting for readability. The use of more colors may also help. ",
+         "no login"
       ]
    },
    {
@@ -206,7 +290,21 @@
          "Easy",
          "Hard",
          "Hard",
-         "Easy"
+         "Easy",
+         "Hard",
+         "Medium",
+         "Easy",
+         "Medium",
+         "Medium",
+         "Medium",
+         "Easy",
+         "Easy",
+         "Easy",
+         "Medium",
+         "Easy",
+         "Easy",
+         "Medium",
+         "Hard"
       ]
    },
    {
@@ -236,7 +334,21 @@
          "there was no effect even after pressing run",
          "As told",
          "I don't know if I was able to complete the simple \"Hello world!\" module. I started it, put the puzzle pieces together and hit \"Run.\" I wasn't given any feedback to its success or failure.",
-         "very easy"
+         "very easy",
+         "I was not able to complete the game. Kept receiving unexpected token error.",
+         "Maybe a descriptor for each puzzle piece would help elucidate what the puzzle piece is doing.",
+         "n/a",
+         "None",
+         "Normal difficulty ",
+         "na",
+         "n/a",
+         "N/A",
+         "problems are easy once understood the game",
+         "Maybe some analysis of how to fix errant input",
+         "n/a",
+         "blocky interface is awesome",
+         "I've ever used the Blocky programming interface myself so there was a bit of a learning curve in usage. ",
+         "no login"
       ]
    },
    {
@@ -265,6 +377,20 @@
          "Low",
          "High",
          "Low",
+         "Medium",
+         "Low",
+         "Medium",
+         "High",
+         "High",
+         "High",
+         "Medium",
+         "Medium",
+         "High",
+         "Low",
+         "Medium",
+         "Medium",
+         "Low",
+         "Medium",
          "Medium",
          "Low"
       ]
@@ -296,7 +422,21 @@
          "Engagement would also depend on the content of the games.",
          "Unable to proceed",
          "I was only able to try the first module to little success due to the other modules being \"locked.\" I think the modules have a strong foundation of engagement.",
-         "would be nice to add audio "
+         "would be nice to add audio ",
+         "N/A due to not being able to complete other modules",
+         "N/A",
+         "n/a",
+         "None",
+         "Standard levels of engagement",
+         "na",
+         "n/a",
+         "N/A",
+         "The page could have been better designed. simple things such as margin and indentation. the game is good, looks to be similar to the one by Google. ",
+         "I like the newer approach",
+         "n/a",
+         "Engaging, good bit of text though ",
+         "It's a little difficult to know how to get started with a problem. Some more guidance  or showing discreet examples might help in understanding. ",
+         "na"
       ]
    },
    {
@@ -326,7 +466,21 @@
          "Helpful",
          "A little helpful",
          "Helpful",
-         "A little helpful"
+         "A little helpful",
+         "Helpful",
+         "A little helpful",
+         "Helpful",
+         "Helpful",
+         "Helpful",
+         "A little helpful",
+         "Helpful",
+         "Not helpful",
+         "Helpful",
+         "Helpful",
+         "A little helpful",
+         "Helpful",
+         "A little helpful",
+         "Not helpful"
       ]
    },
    {
@@ -356,7 +510,21 @@
          "Help tips or see answers options would be helpful.",
          "Unable to do it properly",
          "I think these sandbox environments do a great job in teaching foundation techniques. I like the idea of directed concept learning.",
-         "would be nice to have an exmaple before asking to try and use the blocks"
+         "would be nice to have an exmaple before asking to try and use the blocks",
+         "It is helpful. It keeps students engaged and it's a fun way to convey a concept",
+         "I think a little more direction (i.e. an example) would be helpful as well as a descriptor for the puzzle piece being used. Overall great game module though!",
+         "n/a",
+         "None",
+         "Its good to see things presented in different ways and frequently.",
+         "na",
+         "it was fun - I can imagine kids loving this",
+         "N/A",
+         "NA",
+         "I think it works for concepts",
+         "n/a",
+         "Block programming is useful to make programming easier to understand ",
+         "I think that visualizations are very beneficial to learning. ",
+         "na"
       ]
    }
 ]
