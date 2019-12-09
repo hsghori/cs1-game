@@ -1,12 +1,12 @@
 # README
 
-Ga Tech CS-6460 Project. This application is an online, game based, introductory computer science (CS1) course 
-which leverages the Blockly programming framework to deliver content. 
+Ga Tech CS-6460 Project. This application is an online, game based, introductory computer
+science (CS1) course which leverages the Blockly programming framework to deliver content.
 
 ## Running the application
 
 The application itself runs inside of a docker container. See the `Makefile` for detailed commands
-on building / running the container. 
+on building / running the container.
 
 Command                   | Run in the shell? | Description
 --------------------------|-------------------|-----------------
@@ -16,7 +16,24 @@ Command                   | Run in the shell? | Description
 `make make_migration`     | No                | Creates new migrations
 `make migrate`            | Yes               | Runs the database migrations
 `make build_game_configs` | Yes               | Loads static content into the DB
- 
+
+
+ ## To launch the application locally:
+
+ You will need to have three terminal applications open to run this program locally. You
+ should also have Docker installed. Each terminal should start in the project root.
+
+ In terminal 1 run:
+ - `make build` - builds the Docker image
+ - `make start` - starts the Docker container and launches the server
+
+In terminal 2 run:
+- `make shell` - connects to a bash shell in the running Docker container
+- `make` - Installs all dependencies
+
+In terminal 3 run: (only required if you plan to change JS or SCSS files)
+- `npm install` - install all required npm packages
+- `make watch` - sets up a watcher job for changes to JS or SCSS
 
 ## Installing a JS library
 
@@ -37,15 +54,7 @@ Command                   | Run in the shell? | Description
 	make shell
 	```
 1. Add the library to `requirements.txt`
-2. Run 
+2. Run
     ```Bash
     make python_install
     ```
-
-## Application structure
-
-- `account/`: Django app for login and registration.
-- `api/`: Django app for the backend API - will contain the database models and API endpoints
-- `front/`: Django app for the front end - will the user facing and AJAX views
-- `static/`: Directory containing javascript, scss, and css files. 
-- `templates/`: Directory containing html templates
