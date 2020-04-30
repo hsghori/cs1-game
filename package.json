@@ -2,7 +2,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "blockly": "^3.20191014.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "react": "^16.10.2",
     "react-blockly": "^4.1.0",
     "react-dom": "^16.10.2",
